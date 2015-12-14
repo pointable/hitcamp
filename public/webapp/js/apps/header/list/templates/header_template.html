@@ -1,0 +1,59 @@
+<a href="#" class="btn-activity js-back"><i class="fa fa-arrow-left fa-2x btn-activity-back"></i></a>
+<div class="adventure-title-wrapper camp-adventure-font text-center"><span class="edit-adventure-title">Edit Adventure</span></div>
+<div class="btn-group preview-actions" data-intro="Preview this Adventure in Test Classroom">
+  <a href="/classroom/preview/<%= document.lessonID %>/teststudents/1_2" target="preview" class="btn btn-success" title="Preview Adventure"><i class='fa fa-play'></i> Preview Adventure</a>        
+  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu " role="menu">
+    <li><a href="/classroom/preview/<%= document.lessonID %>/teststudents/0" target="preview" class="">Preview as Teacher </a></li>
+    <li><a href="/classroom/preview/<%= document.lessonID %>/teststudents/1" target="preview" class="">Preview as Student</a></li>    
+    <li><a href="/classroom/preview/<%= document.lessonID %>/teststudents/1_2" target="preview" class="">With 1 Mock Student</a></li>  
+    <li><a href="/classroom/preview/<%= document.lessonID %>/teststudents/2" target="preview" class="">With 2 Mock Students</a></li>    
+    <!--<li><a href="/classroom/preview/<%= document.lessonID %>/teststudents/4" target="preview"  class="">Preview with 4 test students</a></li>-->    
+  </ul>
+</div>
+<!--<p style='display:inline-block'>test</p>-->
+<!--<div class="container-fluid ">
+   Brand and toggle get grouped for better mobile display 
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#engage-navbar">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#"><i class="fa fa-backward"></i>Home</a>
+  </div>
+
+   Collect the nav links, forms, and other content for toggling 
+  <div class="collapse navbar-collapse" id="engage-navbar">
+    <ul class="nav navbar-nav">
+      <li><a href="#" class="js-nav-activities js-guide-am-map">Adventure Map</a></li>
+      <li><a href="#" class="js-nav-list step1 js-guide-am-wordlist">Word Lists</a></li>      
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right js-guide-assign" >
+      <li class="dropdown keep-open">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Classrooms Assigned to this Adventure<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li>      
+            <ul class="list-group checked-list-box" style="width:250px;">              
+              <% _.each(classrooms, function(classroom) { %> 
+              <li class="list-group-item" data-checked='<%= (lesson._id === classroom.lesson)? "true":"false" %>' 
+                  id="<%= classroom._id %>"><%= classroom.name %>
+                <a class="btn btn-sm btn-success pull-right edit" style="margin-top:-5px;position:absolute;right:5px" 
+                   value='<%- classroom._id %>' href='/<%- classroom.path %>' onclick="event.stopPropagation();">
+                  Launch
+                </a>
+              </li>
+              <% }); %> 
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div> /.navbar-collapse 
+</div> /.container-fluid -->
+

@@ -1,0 +1,14 @@
+<div class="row activity-title">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+     <span><%= lessonName %>  </span>  
+  </div>
+ 
+</div>
+<p></p>
+
+<div id="adventure-view" class="row" style="background-image:url('<%= backgroundImageURL %>')"></div>
+<% if (window.top !== window.self) { %>
+<div class="test-view-text text-center">Mock Student</div>
+<% } else if  (window.isPreview) { %>
+<div class="test-view-text text-center">Preview</div>  
+<% } %>

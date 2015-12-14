@@ -1,0 +1,294 @@
+doctype html
+head
+  title Hit.Camp: !{classroom.name} - Test Students 1x
+  meta(charset='UTF-8')
+  meta(http-equiv='x-ua-compatible', content='IE=edge')
+  meta(name='viewport', content='initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no')
+  meta(name='mobile-web-app-capable', content='yes')
+  meta(name='apple-mobile-web-app-capable', content='yes')
+  meta(name='apple-mobile-web-app-status-bar-style', content='black')   
+
+  link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css')   
+  //link(rel='stylesheet', href='//cdn.jsdelivr.net/intro.js/0.9.0/introjs.min.css') 
+  link(rel='stylesheet', href='/tools/libs/bxslider/jquery.bxslider.css')
+
+  script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js', type='text/javascript')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js')
+  //script(src='/tools/introjs/intro.js')
+  script(src='/tools/libs/bxslider/jquery.bxslider.min.js')
+
+  script(src='/guides/indexSessionTestStudents1_1Guide.js', type='text/javascript')
+
+  style(type='text/css').
+    html, body {
+      width: 100%;
+      height:100%;
+      margin: 0px;
+      padding: 0px;
+      overflow: hidden;
+      position: fixed;      
+    }
+    #divType {
+      height:100%;
+    }
+    .small .panel {
+      -moz-transform: scale(0.8, 0.8); 
+      -webkit-transform: scale(0.8, 0.8); 
+      -o-transform: scale(0.8, 0.8);
+      -ms-transform: scale(0.8, 0.8);
+      transform: scale(0.8, 0.8); 
+      -moz-transform-origin: top left;
+      -webkit-transform-origin: top left;
+      -o-transform-origin: top left;
+      -ms-transform-origin: top left;
+      transform-origin: top left;
+
+      margin: 0px;
+      padding: 0px;
+      border: 0px;
+      outline: 2px black solid;
+      position:fixed;
+
+      float:left;      
+      top: 0px;
+      width: 62.5%;
+      height: 100%;
+      height: -moz-calc(125% - 160px);
+      height: -webkit-calc(125% - 160px);
+      height: -o-calc(125% - 160px);
+      height: calc(125% - 160px);
+    }
+
+    .big .panel {
+      margin: 0px;
+      padding: 0px;
+      border: 0px;
+      outline: 2px black solid;
+      position:fixed;
+
+      float:left;      
+      top: 0px;
+      width: 50%;
+      height: 100%;
+      height: -moz-calc(100% - 80px);
+      height: -webkit-calc(100% - 80px);
+      height: -o-calc(100% - 80px);
+      height: calc(100% - 80px);
+    }
+
+    #panelStudent1 {
+      left: 50%;
+    }
+    #guide-view-frames {
+      height: 100%;
+      height: -moz-calc(100% - 150px);
+      height: -webkit-calc(100% - 150px);
+      height: -o-calc(100% - 150px);
+      height: calc(100% - 150px);
+      overflow-y: hidden;
+      position: relative;
+    }
+    #guide-view-footer {
+      position: relative;
+      height: 150px;
+    }
+
+    .center{
+      text-align:center;
+    }
+    .guide-step{
+      height:155px;
+      padding-left: 0px;
+      padding-right: 20px;
+      margin: 0 auto;
+      overflow-y:visible;
+    }
+    .image-gif{
+      height: 115px;
+      margin-left:20px;
+      /* position: fixed; */
+      margin: 0 auto;
+      margin-top: 0px;
+      border: 2px solid black;
+      z-index: 9999999999;
+    }
+    .image-gif:hover{
+      /* position: fixed; */
+      margin: 0 auto;
+      height: 220px;
+      margin-top: -106px;
+      background-color: white;
+    }
+    .bx-wrapper, .bx-viewport {
+      height: 115px !important; 
+      overflow: visible !important;
+      left: 0px;
+      -moz-box-shadow: 0 !important;
+      -webkit-box-shadow: 0 !important;
+      box-shadow: 0 0 0 0 !important;
+      border: 0 !important;
+      background: #fff !important;
+    }
+    .half {
+      width: 50%;
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+    .third1 {
+      width: 30%;
+    }
+    .third2 {
+      width: 70%;
+    }
+    table {
+      width: 95%;
+    }
+
+
+body(onload='load()')
+  #guide-view-frames
+    #divType.small
+      iframe#panel1.panel.panel1(src='/'+ idSession +'/' + pathData)
+      iframe#panelStudent1.panel.panelStudent1(src='/join/'+ idSession+'/?name=Mock Student&' + pathData)
+      //iframe#panelStudent2.panel.panelStudent2(src='/join/'+ idSession+'/?name=Student Right&' + pathData)
+  #guide-view-footer
+    ul.bxslider
+      li        
+        .guide-step
+          table
+            tr
+              td.center.half
+                h1 Teacher
+                h4 Log into your classroom as a Teacher to manage your classroom
+              td.center.half
+                h1 Mock Student
+                h4 Your students will see the screen above on their own mobile devices
+      li        
+        .guide-step
+          table
+            tr
+              td.center.third1
+                img.image-gif(src='/guides/introduction-images/1-enter-address.png')
+              td.third2
+                h4 If you have another device (eg iPad, Android Tablet, Chromebook), you may now connect as a student by opening
+                h4 
+                  b !{classroomPath}
+      li        
+        .guide-step
+          table
+            tr
+              td.center.third1
+                img.image-gif(src='/guides/introduction-images/2-students-list.png')
+              td.third2
+                h4  Expand the <b>Students List</b> (top right icon) to view the list of connected students
+                h4  Click on a <b>student's name</b> to access the student's recent activity and real-time stats
+      li        
+        .guide-step
+          table
+            tr
+              td.center.third1
+                img.image-gif(src='/guides/introduction-images/3-adventure-map.png')
+              td.third2
+                h4 The <b>Adventure map</b> contains the teaching materials (PDF, PPT, Youtube) that you have prepared
+                h4 Activate <b>Sync Slides</b> to synchronize the slides with your students
+      li        
+        .guide-step
+          table
+            tr
+              td.center.third1
+                img.image-gif(src='/guides/introduction-images/4-campfire-app.gif')
+              td.third2
+                h4 Need to engage your students? Trigger a <b>Campfire App</b>!
+                h4 Try the <b>Buzzer</b> app to select the fastest student
+      li        
+        .guide-step
+          table
+            tr
+              td.center.third1
+                img.image-gif(src='/guides/introduction-images/5-campfire-app-sortme.png')
+              td.third2
+                h4 Reinforce your students' understanding via competitive multiplayer apps!
+                h4 Word Lists apps such as <b>Sort Me</b> reuses your teaching materials in different ways
+      li
+        .guide-step
+          table
+            tr
+              //td.center.third1
+              //  img.image-gif(src='/guides/introduction-images/2-students-list.png')
+              td.center
+                h4 Congrats on completing your first experience as a <b>Hit.Camp Teacher</b>!
+                h4 You may now start exploring and use Hit.Camp in your classroom today.          
+                .js-end-demo
+                  a.btn.btn-default Exit Tutorial
+                //h4 To help you get started, we have crafted one week of <b>daily Adventures</b> that you may start using in your classroom instantly.
+
+script.
+  function load() {
+
+    $('#setBig').click( function(event) {
+      event.preventDefault();
+      $("#divType").removeClass("small");
+      $("#divType").addClass("big");
+
+      $("#setBig").parent().addClass("active");
+      $("#setSmall").parent().removeClass("active");
+      hideNavBar();
+    } );
+    $('#setSmall').click( function(event) {
+      event.preventDefault();
+      $("#divType").removeClass("big");
+      $("#divType").addClass("small");
+
+
+      $("#setSmall").parent().addClass("active");
+      $("#setBig").parent().removeClass("active");
+      hideNavBar();
+    } );
+    $(document).on('touchmove',function(e){
+      e.preventDefault();
+    });
+  }
+
+  function switchFullScreen() {
+  //  console.log(document.fullsscreenElement);
+    if (document.fullscreenElement || // alternative standard method
+            document.mozFullScreenElement ||
+            document.webkitFullscreenElement || document.msFullscreenElement) {
+      exitFullscreen();
+    } else {
+      enterFullscreen();
+    }
+    hideNavBar();
+  }
+
+  function enterFullscreen() {
+    console.log("enterFullscreen()");
+    var element = document.documentElement;
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+    }
+  //  document.getElementById('enter-exit-fs').onclick = exitFullscreen;
+  }
+  function exitFullscreen() {
+    console.log("exitFullscreen()");
+    if(document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if(document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if(document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+  }
+
+  function hideNavBar() {
+    var elementNavBar = $(".navbar-collapse");
+    elementNavBar.removeClass("in");
+    elementNavBar.removeClass("collapsing");
+    elementNavBar.addClass("collapse");
+  }

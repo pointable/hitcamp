@@ -1,0 +1,36 @@
+body {
+  font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+h1 {
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+}
+h2 {
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+}
+h4 {
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+}
+.camp-adventure-title {
+  font-family: 'Montserrat', 'Helvetica Neue', sans-serif;
+  color: white;
+  text-shadow: 3px 3px 0 #000000, /* Simulated effect for Firefox and Opera
+       and nice enhancement for WebKit */ -1px -1px 0 #000000, 1px -1px 0 #000000, -1px 1px 0 #000000, 1px 1px 0 #000000;
+}
+.result-overlay {
+  min-height: 100px;
+  position: absolute;
+  width: 100%;
+  padding: 0px;
+}
+.result-text {
+  width: 100%;
+  position: absolute;
+  min-height: 100px;
+}
+.infinite-animation {
+  -webkit-animation-iteration-count: infinite;
+  -moz-animation-iteration-count: infinite;
+  -ms-animation-iteration-count: infinite;
+  -o-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}

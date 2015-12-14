@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>Word Wheel Student</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css">  
+    <!-- build:css css/wheelWordStudent.min.css -->
+    <link href="css/wheelWordStudent.css" rel="stylesheet" type="text/css"/>
+    <!-- endbuild --> 
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.0/fastclick.min.js"></script>
+    <!--<script src="//cdnjs.cloudflare.com/ajax/libs/hammer.js/1.0.10/hammer.min.js"></script>-->
+
+    <!-- build:js js/wheelWordStudent.min.js -->
+    <script type="text/javascript" src="./js/wheelWordStudent.js"></script>
+    <!-- endbuild -->
+
+
+  </head>
+  <body>
+    <div style="float:right;">
+      <!--      <button type="button" class="btn btn-default btn-lg" id="buttonStar">
+            <span class="glyphicon glyphicon-star"></span> Star
+          </button>-->
+    </div>
+    <!--<div id="divName">   <h2>Name</h2></div>-->
+    <!-- Nav tabs -->
+    <!--    <ul class="nav nav-tabs">
+          <li class="active"><a href="#play" data-toggle="tab">Play</a></li>
+          <li><a href="#history" data-toggle="tab">History</a></li>
+          <li><a href="#messages" data-toggle="tab">Messages</a></li>
+          <li><a href="#settings" data-toggle="tab">Settings</a></li>
+        </ul>-->
+
+    <!-- Tab panes -->
+    <div class="tab-content" style="padding-left:5px;">
+      <div class="tab-pane active" id="play">
+        <div class="keyboard">
+          <button id="buttonA"  class="btn btn-default btn-primary">A</button>
+          <button id="buttonB"  class="btn btn-default btn-primary">B</button>
+          <button id="buttonC"  class="btn btn-default btn-primary">C</button>
+          <button id="buttonD"  class="btn btn-default btn-primary">D</button>
+          <button id="buttonE"  class="btn btn-default btn-primary">E</button>
+          <button id="buttonF"  class="btn btn-default btn-primary">F</button>
+          <button id="buttonG"  class="btn btn-default btn-primary">G</button>
+          <button id="buttonH"  class="btn btn-default btn-primary">H</button>
+          <button id="buttonI"  class="btn btn-default btn-primary">I</button>
+          <button id="buttonJ"  class="btn btn-default btn-primary">J</button>
+          <button id="buttonK"  class="btn btn-default btn-primary">K</button>
+          <button id="buttonL"  class="btn btn-default btn-primary">L</button>
+          <button id="buttonM"  class="btn btn-default btn-primary">M</button>
+          <button id="buttonN"  class="btn btn-default btn-primary">N</button>
+          <button id="buttonO"  class="btn btn-default btn-primary">O</button>
+          <button id="buttonP"  class="btn btn-default btn-primary">P</button>
+          <button id="buttonQ"  class="btn btn-default btn-primary">Q</button>
+          <button id="buttonR"  class="btn btn-default btn-primary">R</button>
+          <button id="buttonS"  class="btn btn-default btn-primary">S</button>
+          <button id="buttonT"  class="btn btn-default btn-primary">T</button>
+          <button id="buttonU"  class="btn btn-default btn-primary">U</button>
+          <button id="buttonV"  class="btn btn-default btn-primary">V</button>
+          <button id="buttonW"  class="btn btn-default btn-primary">W</button>
+          <button id="buttonX"  class="btn btn-default btn-primary">X</button>
+          <button id="buttonY"  class="btn btn-default btn-primary">Y</button>
+          <button id="buttonZ"  class="btn btn-default btn-primary">Z</button>
+        </div>
+        <br>
+        <div class="board center-block" style="text-align:center;" id="board">
+          <!--          <button class="btn btn-disabled btn-lg col-centered boardfont" id="letter0">?</button>
+                    <button class="btn btn-disabled btn-lg col-centered boardfont">?</button>
+                    <button class="btn btn-disabled btn-lg col-centered boardfont">?</button>
+                    <button class="btn btn-disabled btn-lg col-centered boardfont">?</button>
+                    <button class="btn btn-disabled btn-lg col-centered boardfont">?</button>-->
+        </div>
+        <div id="divCurrentCategory" style="">
+          <div id="currentCategory" style="text-align: center;">Category</div>
+        </div>
+        <div style="margin-top:20px">
+          <button class="btn btn-primary btn-large disabled pull-right" style="visibility:hidden" id="buttonNextWord">
+            <span class="glyphicon glyphicon-arrow-right"></span>&nbsp;Next
+          </button>
+        </div>
+        <br>
+        <div style="bottom:0px;">
+
+
+          <div id="container" class="center-block"></div>
+          <div id="debug" style="position:relative"></div>
+          <script src="//d3lp1msu2r81bx.cloudfront.net/kjs/js/lib/kinetic-v5.0.1.min.js"></script>
+          <button class="btn btn-default btn-success btn-lg center-block" id="buttonTriggerSpin" style="">
+            <span class="glyphicon glyphicon-refresh"></span> Spin
+          </button>
+        </div>
+      </div>
+      <div class="tab-pane" id="history">
+        History
+      </div>
+      <div class="tab-pane" id="messages">
+        MESSAGES
+      </div>
+      <!--<div class="tab-pane" id="settings">...</div>-->
+    </div>
+
+    <script type="text/template" class="template" id="templateResults">
+      <div class="center-block" style="text-align:center">
+      <h3><%- title %></h3>        
+      <p style="color:darkgreen; font-size:20px;"><i class="fa fa-check fa-fw"></i> Letters : <%- countCorrect %></p>
+      <p style="color:darkred; font-size:20px;"><i class="fa fa-times fa-fw"></i> Letters : <%- countWrong %></p>
+      </div>
+    </script>
+  </body>
+</html>

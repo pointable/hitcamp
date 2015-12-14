@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Word Search Game - Ryan Fernandes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="js/wordsearchgame.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
+    <link  rel="stylesheet" type="text/css" href="css/wordsearchgame.css">
+
+    <script>
+      $(document).ready(function() {
+        var words = "earth,mars,mercury,neptune,pluto,saturn,jupiter,one,two," +
+            "three,four,five,six,seven,eight,mozart,bach,meyer,rose,mahler";
+
+        //attach the game to a div
+        $("#theGrid").wordsearchwidget({"wordlist": words, "gridsize": 10});
+
+      });
+
+
+    </script>
+
+  </head>
+  <body>
+    <div id="theGrid"></div>
+
+  </body>
+</html>

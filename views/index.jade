@@ -1,0 +1,37 @@
+extends ../layouts/default
+
+block head
+  title Hit.Camp
+
+block neck
+  link(rel='stylesheet', href='/views/index.min.css?#{cacheBreaker}')
+
+block body
+  div.jumbotron
+    h1 Hit.Camp
+    p.lead
+      | Private Beta
+      div
+        //a.btn.btn-primary.btn-lg(href='/signup/') Create an Account
+        //|  or&nbsp;
+        //a.btn.btn-warning.btn-lg(href='/login/forgot/') Reset Your Password
+      div.clearfix
+  div.row
+    div.col-sm-4
+      div.panel.panel-default
+        div.panel-body
+          h3 Engage
+          p Deliver your lesson with exciting multiplayer Campfire Apps
+          //a.btn.btn-default.btn-block(href='/about/') Learn More
+    div.col-sm-4
+      div.panel.panel-default
+        div.panel-body
+          h3 Manage
+          p Control and track your students' activities effortlessly
+          //a.btn.btn-default.btn-block(href='/signup/') Learn More
+    div.col-sm-4
+      div.panel.panel-default
+        div.panel-body
+          h3 Love EdTech?
+          p Be among the first classrooms to experience Hit.Camp
+          a.btn.btn-default.btn-block(href='/contact/') Contact Us

@@ -1,0 +1,70 @@
+.combobox-container{
+  /*    float: none;
+      margin: 0 auto;*/
+  display:inline-block;
+}
+
+.nav-tabs>li>a.btn-close:hover {
+  border-color:transparent;
+  background-color: transparent;
+
+}
+
+.nav-tabs>li>a.btn-close{
+  border-color:transparent;
+  background-color: transparent;
+  float:right;
+}
+#table_div{
+  width: 100%; 
+  max-width: 500px;
+  height: 500px;
+}
+
+.google-visualization-table-td, .google-visualization-table-th, .google-visualization-table-tr-head{
+  text-align: center !important;
+}
+.google-visualization-table-td-number{
+  text-align: center !important;
+}
+
+.form-control{
+  display:inline-block;
+  width:auto;
+}
+
+#mc{
+  margin-bottom: 0px;
+}
+
+.configuration-panel{
+  margin-top: 15px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border:3px solid gray;
+  padding-left:15px;
+  padding-top:5px;  
+}
+
+/*.btn-panel{
+  position: absolute;
+  width:500px;
+  left:50%;
+  margin-left: -250px;
+}*/
+
+.level1{
+  background-color: #e06666;
+}
+.level2{
+  background-color: #F3CB34;
+}
+.level3{
+  background-color: #ccffcc;
+}
+.level4{
+  background-color: #5cb85c;
+}
+.level5{
+  background-color: lightblue;
+}

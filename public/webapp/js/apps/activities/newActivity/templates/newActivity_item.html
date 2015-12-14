@@ -1,0 +1,24 @@
+<!--<span class="fa fa-3x <%= icon %> activity-type-icon"></span>-->
+
+<div class="activity-type-desc">
+  <!--<h4> Description</h4>-->
+  <div><%= desc %></div>
+  <br>
+</div>
+<div class='activity-type-icon-wrapper'>
+  <% if ( type === 'media') { %>
+  <div class='media-type-desc text-center camp-adventure-font'><span>Q</span></div>
+  <% } else if ( type === 'wordList' ) { %>
+    <div class='media-type-desc text-center camp-adventure-font'><span>W</span></div>
+  <% } %> 
+  
+  <div class="activity-type-icon" style='background-image: url("<%= icon %>")'></div>
+</div>
+
+<div class="activity-type-title">
+  <%= title %>
+</div>
+
+<div class="text-center btn-select">
+  <a class="btn btn-success js-activity-type">Add Activity</a>  
+</div>

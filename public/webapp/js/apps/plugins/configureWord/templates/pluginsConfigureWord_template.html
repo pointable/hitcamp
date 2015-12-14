@@ -1,0 +1,88 @@
+<div class="row gutter">
+  <div  class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <button type="button" class="close js-close" data-dismiss="modal" aria-hidden="true"><span class="modal-close">&times;</span></button>
+    <div class="center-block text-center">
+      <h3>Configure Word List with App</h3> 
+    </div>
+  </div>
+
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <span class="word-list-title">1. Choose Word Lists </span>  
+    <button type="button" class="btn btn-info navbar-btn js-guide">
+            <i class="fa fa-info-circle"></i> Guide</button>
+  </div>
+
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <!--<button class="btn btn-success btn-large js-new-list"><i class="fa fa-th-list"></i> Create New List</button>-->
+    Note: You can create new Word Lists with the &nbsp;<div class="btn-wordLists-editor-shortcut"><i class="fa fa-list-alt btn-editor-icon-shortcut fa-2x"></i></div> <b>Word List Editor</b> on the Adventure Map
+  </div>
+
+  <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6 configure-wordlist">
+    <span>First WordList :</span>
+
+    <select id="wl1" class="form-control js-select-wordList">
+      <option value=0>Select a word list</option>
+      <% _.each(wordLists.models,function(wordList){ %>             
+      <% var title=wordList.get("title"); %>
+      <% var id=wordList.get("_id"); %>
+      <option value="<%= id %>"><%=  title %></option>
+      <% }) %>            
+    </select>
+  </div>
+  <div  class="col-lg-3 col-md-3 col-sm-6 col-xs-6 configure-wordlist">
+    <span>Second WordList :</span>
+    <select id="wl2" class="form-control js-select-wordList">
+      <option value=0>Select a word list</option>
+      <% _.each(wordLists.models,function(wordList){ %>             
+      <% var title=wordList.get("title"); %>
+      <% var id=wordList.get("_id"); %>
+      <option value="<%= id %>"><%=  title %></option>
+      <% }) %>  
+    </select>
+  </div>
+</div>
+
+<!--<div class="row">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <button class="btn btn-default">Create New List</button>
+    <div class="list-area" data-toggle="tooltip" data-placement="left" title="Edit Title">
+      <div contentEditable=true data-ph="Click to edit Title" class="col-md-12 col-sm-12 col-lg-12 padding-0px list-title js-title-edit">Title</div>
+      <div class="title-edit-area ">
+        <textarea class="title-edit-textarea js-title-edit-area">Title</textarea>
+        <a class="btn btn-success js-title-save">
+          <i class="icon-white icon-ok"></i>Save
+        </a>
+        <a class="btn btn-default js-title-cancel">Cancel</a>
+      </div>
+            var string='';
+              _.each(words,function(word){        
+                if(word !== ' ' || word !=='\n'){
+                  string += (word + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp");
+                }
+                console.log(string);
+              })
+      <div contentEditable=true data-ph="Click to edit Word List" class="col-md-12 col-sm-12 col-lg-12 padding-0px list-text js-list-text" >
+           string 
+      </div>
+      <div class="list-edit-area js-list-edit-area">
+        <textarea class="list-edit-textarea"></textarea>
+        <a class="btn btn-success js-save">
+          <i class="icon-white icon-ok"></i>Save
+        </a>
+        <a class="btn btn-default js-cancel">Cancel</a>
+      </div>
+      <a class="btn btn-default btn-list-delete js-delete">
+        <i class="fa fa-trash-o"></i> 
+      </a>
+    </div>
+  </div>
+</div>-->
+
+<div class="row" id="plugins">
+
+</div>
+
+
+
+
+

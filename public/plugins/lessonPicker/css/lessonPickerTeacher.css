@@ -1,0 +1,9 @@
+.combobox-container{
+/*    float: none;
+    margin: 0 auto;*/
+    display:inline-block;
+}
+
+.edit {
+  margin-top: -5px;
+}

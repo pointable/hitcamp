@@ -1,0 +1,83 @@
+<% if (tileType === "checkpoint") { %>
+<div class="activity-checkpoint">
+  <div class="activity-delete js-click" >
+    <!--    <i class="fa fa-times 2x btn-activity-delete js-delete"></i>-->
+    <div class="btn-group btn-group-options">      
+      <a  class="btn dropdown-toggle btn-activity-options" data-toggle="dropdown">
+        <i class="fa fa-chevron-down btn-activity-options-icon"></i>
+        <!--        <span class="caret"></span>-->
+        <span class="sr-only">Toggle Dropdown</span>
+      </a>
+      <ul class="dropdown-menu" role="menu">
+        <li><a href="#" class="js-edit">Edit Activity</a></li>
+        <li><a href="#" class="js-delete">Delete</a></li>
+        <li class="colors">
+          <div class="color-option blue js-color"></div>
+          <div class="color-option brown js-color"></div>
+          <div class="color-option green js-color"></div>
+          <div class="color-option pink js-color"></div>
+          <div class="color-option red js-color"></div>
+          <div class="color-option yellow js-color"></div>          
+        </li>
+        <!--<li><a href="#" class="js-first">Mark as first</a></li>-->
+        <!--        <li><a href="#" class="js-activate">Activate</a></li>
+                <li class="divider"></li>
+                <li><a href="#">Separated link</a></li>-->
+      </ul>
+    </div>
+  </div>
+
+  <% if (activityType ==="media" && elements.length ===0  ) { %>
+  <% console.log("this actitvity", elements.length) %>
+  <div class="checkpoint-wrapper js-move">
+    <div class="checkpoint markerBlue ">
+      <!--      <img class="checkpoint-img checkpoint-shadow">-->
+    </div>
+    <div class="checkpoint-desc">?</div>
+  </div>  
+  <% } else if (activityType ==="media" && elements.length !== 0 && checkPointIcon === "" ) { %>
+  <div class="checkpoint-wrapper js-move ">
+    <div class="checkpoint markerBlue">
+      <!--      <img class="checkpoint-img " src="/webapp/images/checkpoint_blue.svg">-->
+    </div>
+    <div class="checkpoint-desc">Q</div>
+  </div>
+  <% } else if (activityType ==="media" && elements.length !== 0 && checkPointIcon !== "" ) { %>
+  <div class="checkpoint-wrapper js-move ">
+    <div class="checkpoint  <%= checkPointIcon %>">
+      <!--      <img class="checkpoint-img " src="/webapp/images/checkpoint_blue.svg">-->
+    </div>
+    <div class="checkpoint-desc">Q</div>
+  </div>  
+  <% } else if (activityType ==="wordList" && pluginApp === "" ){  %>
+  <div class="checkpoint-wrapper js-move">    
+    <div class="checkpoint markerBrown"></div>
+    <div class="checkpoint-desc">W</div>
+  </div>  
+  <% } else if (activityType ==="wordList" && checkPointIcon === ""){  %>
+  <div class="checkpoint-wrapper js-move">   
+    <div class="checkpoint markerBrown"></div>         
+    <div class="checkpoint-desc "> <i class="fa <%= pluginAppIcon %>"></i> </div>  
+  </div>
+  <% } else if (activityType ==="wordList" && checkPointIcon !== ""){  %>
+  <div class="checkpoint-wrapper js-move">   
+    <div class="checkpoint <%= checkPointIcon %>"></div>         
+    <div class="checkpoint-desc "> <i class="fa <%= pluginAppIcon %>"></i> </div>  
+  </div>  
+  <% } else { %>
+  <div class="checkpoint-wrapper js-move">    
+    <div class="checkpoint markerBlue "></div>
+    <div class="checkpoint-desc"></div>
+  </div>  
+  <% }  %>
+  <div class="activity-coordinate" data-x="<%= x  %>" data-y="<%= y %>" ></div>
+
+
+  <div class="activity-description ">
+    <span  contentEditable=true data-ph="Click to edit " class="activity-activity-desc js-rename"><%= activityTitle %></span>
+  </div>
+</div>
+<% }  %>
+
+
+

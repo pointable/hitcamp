@@ -1,0 +1,178 @@
+extends ../../layouts/account
+
+block head
+  title Hit.Camp: Classrooms
+  meta(charset='UTF-8')
+  meta(name='viewport', content='initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no')
+  meta(name='mobile-web-app-capable', content='yes')
+  meta(name='apple-mobile-web-app-capable', content='yes')
+  meta(name='apple-mobile-web-app-status-bar-style', content='black')
+
+block neck
+  link(rel='stylesheet', href='//cdn.jsdelivr.net/intro.js/0.9.0/introjs.min.css')
+  link(rel='stylesheet', href='/views/session/indexClassroomList.min.css?#{cacheBreaker}')
+  link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css')
+
+block feet
+  script(src='//cdn.jsdelivr.net/intro.js/0.9.0/intro.min.js')
+  script(src='/guides/indexClassroomListGuide.js')
+  script(src='/views/session/indexClassroomList.js?#{cacheBreaker}')
+
+block body
+  div.row
+    div.col-xs-12
+      div#header
+      //div#filters
+      div#results-table
+      div#results-paging
+      
+  .adventure-guide
+    .adventure-introduction-area
+      .adventure-introduction-close.js-guide-close
+        i.fa.fa-times-circle-o.fa-2x
+      .adventure-guide-text
+        span.adventure-guide-section.adventure-hitcamp-text Hit.Camp
+        span.adventure-guide-section
+          | in&nbsp;&nbsp;
+          span.adventure-seconds 2
+          | &nbsp; minutes
+      .adventure-guide-section.adventure-btn-area.js-live-demo
+        a.btn.btn-success.btn-start-guide Live Demo
+      .adventure-guide-section
+        span.intro-note-desktop *optimized for desktop view
+      br
+      #adventure-demo-video.adventure-guide-section
+        iframe(width='250', height='141', src='//www.youtube.com/embed/8rsfT_sCEuo?enablejsapi=1&rel=0', frameborder='0', allowfullscreen='allowfullscreen')
+      .adventure-guide-section.adventure
+        label.checkbox-do-not-display
+          input#checkboxHide.js-display(type='checkbox')
+          | Do not display this again
+      .adventure-guide-section.adventure
+
+  script(type='text/template', id='tmpl-header')
+    div.page-header
+      form.form-inline.pull-right
+        div.input-group.intro-create-classroom
+          input.form-control#create(name='name', type='text', placeholder='enter new Classroom name', value!='', style='width: 250px;')
+          button.btn.btn-primary.btn-add(type='button') Create Classroom
+      h1 Classrooms 
+        button.btn.btn-sm.btn-info.btn-intro(type='button')
+          i.fa.fa-info-circle.fa-fw
+          | &nbsp; Guide
+      //h2 (classrooms)
+
+  script(type='text/template', id='tmpl-filters')
+    form.filters
+      div.row
+        div.col-sm-3
+          label Lesson Search
+          input.form-control(name='lessonName', type='text')
+        div.col-sm-2
+          label Completed
+          select.form-control(name='isComplete')
+            option(value='') either
+            option(value='yes') yes
+            option(value='no') no
+        div.col-sm-2
+          label Sort By
+          select.form-control(name='sort')
+            option(value='_id') Date Created &#9650;
+            option(value='-_id') Date Created &#9660;
+  script(type='text/template', id='tmpl-results-table')
+    table.table.table-striped
+      thead
+        tr
+          th Classroom
+          th Classroom Address
+          //th PIN
+          th Assigned Adventure
+          //th Action
+          th
+      tbody#results-rows
+
+  script(type='text/template', id='tmpl-results-row')
+    <% if (isLocked) {  %> 
+    div.isLocked(style="display:none")        
+    <% } %>
+    td <%= name %>
+    td.td-classroom-address
+      //input.btn.btn-sm.btn-info(type='button', value='Copy')
+      a(href!="<%- fullPath %>" ,target='_blank')
+        i.fa.fa-share-square &nbsp; <%= fullPath %>
+    //td.td-classroom-PIN <%= PIN %>
+    td.td-classroom-adventure
+      .btn-group
+        a.btn.btn-default.dropdown-toggle.btn-select(data-toggle='dropdown', href='#' style='width:180px; overflow-x:hidden')
+            |  <%= lessonName %> 
+            span.pull-right.caret
+          ul.dropdown-menu
+            li.list-group-item.lessonNone#undefined
+              a.lesson-name(href='#') 
+                span.fa.fa-minus
+                | &nbsp; No Adventure
+            li.list-group-item.lessonNew
+              a.lesson-name(href='/adventures/edit/') 
+                span.fa.fa-plus
+                | &nbsp; Create new Adventure
+            <% _.each(lessons, function(lessonItem) { %> 
+            <li class="list-group-item <%= (lesson === lessonItem._id)? "active": ""  %> <%= (lessonItem.isLocked)? "lessonLocked": ""  %>" id="<%= lessonItem._id %>"><a href="#"><div class="lesson-name"><%= lessonItem.lessonName %></div>
+            <% if (!lessonItem.isLocked) { %> 
+            <button class="btn btn-sm btn-info pull-right lessonEdit" style="margin-top:10px;position:absolute;right:5px; top:0px"><span class="fa fa-pencil-square-o fa-fw"></span>
+            </button>            
+            <% }else { %> 
+            <span class="fa fa-lock fa-fw pull-right" style="margin-top:10px;position:absolute;right:5px; top:8px"></span>
+            <% }%> 
+            </a>
+            </li>
+            <% }); %> 
+
+    td.td-classroom-configuration
+      //btn.btn.btn-default.btn-sm.btn-details(type='button', value='Classroom Settings')
+        i.fa.fa-gear &nbsp; Settings
+      .btn-group
+        a.btn.btn-success.launch(href!='<%= fullPath %>')
+            i.fa.fa-share-square.fa-fw
+            | &nbsp; Launch Classroom
+          a.btn.btn-success.dropdown-toggle(data-toggle='dropdown', href='#')
+            span.fa.fa-caret-down
+          ul.dropdown-menu
+            li.list-group-item
+              a.viewReports(href='#')
+                i.fa.fa-bar-chart-o.fa-fw
+                | &nbsp; View Reports
+            li.list-group-item
+              a.manageStudents(href='#')
+                i.fa.fa-users.fa-fw
+                | &nbsp; Manage Students
+            li.list-group-item
+              a.configureClassroom(href='#')
+                i.fa.fa-gear.fa-fw
+                | &nbsp; Configure Classroom
+            //li
+            //  a.deleteClassroom(href='#')
+            //    i.fa.fa-trash-o.fa-fw
+            //    | &nbsp; Delete Classroom
+
+      //input.btn.btn-default.btn-sm.btn-danger(type='button', value='Delete' style='float:right')
+
+
+  script(type='text/template', id='tmpl-results-empty-row')
+    tr
+      td(colspan='5') no classrooms found 
+  script(type='text/template', id='tmpl-results-paging')
+    div.well
+      div.btn-group.pull-left
+        button.btn.btn-default(disabled=true) Page <%= pages.current %> of <%= pages.total %>
+        button.btn.btn-default(disabled=true) Rows <%= items.begin %> - <%= items.end %> of <%= items.total %>
+      div.btn-group.pull-right
+        button.btn.btn-default.btn-page.btn-prev(data-page!='<%= pages.prev %>') Prev
+        button.btn.btn-default.btn-page.btn-next(data-page!='<%= pages.next %>')  Next
+      div.clearfix
+
+
+  script(type='text/template', id='data-results') !{data.results}
+  script(type='text/template', id='data-lessons') !{data.lessons}
+
+  //script(type='text/template', id='data-session') !{sessionData}
+  script(type='text/template', id='data-hideGuide') !{data.hideGuide}
+

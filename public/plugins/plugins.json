@@ -1,0 +1,143 @@
+{
+  "name": "hitcamp",
+  "version": "0.1",
+  "pluginTypes": [{
+      "category": "responses",
+      "title": "Responses",
+      "plugins": [{
+          "plugin": "OPEN_RESPONSE",
+          "pluginURL": "/plugins/openResponse/openResponseStudent.html",
+          "pluginTeacherURL": "/plugins/openResponse/openResponseTeacher.html",
+          "pluginURLDist": "/plugins/openResponse/dist/openResponseStudent.html",
+          "pluginTeacherURLDist": "/plugins/openResponse/dist/openResponseTeacher.html",
+          "pluginTitle": "Open Response",
+          "pluginServerPath": "./openResponse/serverOpenResponse",
+          "category": "Responses",
+          "icon": "fa-pencil",
+          "desc":"\"Get annotation responses from students\""
+        },
+        {
+          "plugin": "QUICKPOLL",
+          "pluginURL": "/plugins/quickPoll/quickPollStudent.html",
+          "pluginTeacherURL": "/plugins/quickPoll/quickPollTeacher.html",
+          "pluginURLDist": "/plugins/quickPoll/dist/quickPollStudent.html",
+          "pluginTeacherURLDist": "/plugins/quickPoll/dist/quickPollTeacher.html",
+          "pluginTitle": "Quick Poll",
+          "pluginServerPath": "./quickPoll/serverQuickPoll",
+          "category": "Responses",
+          "icon": "fa-bar-chart-o",
+          "desc":"\"Great for getting instant student responses\"\n"          
+        },
+        {
+          "plugin": "CHECK_IN",
+          "pluginURL": "/plugins/checkIn/checkInStudent.html",
+          "pluginTeacherURL": "/plugins/checkIn/checkInTeacher.html",
+          "pluginURLDist": "/plugins/checkIn/dist/checkInStudent.html",
+          "pluginTeacherURLDist": "/plugins/checkIn/dist/checkInTeacher.html",
+          "pluginTitle": "Check In",
+          "pluginServerPath": "./checkIn/serverCheckIn",
+          "category": "Responses",
+          "icon": "fa-check-circle-o",
+          "desc":"\"Check students' understanding\""
+        }
+      ]
+    },
+    {
+      "category": "selection",
+      "title": "Student Selection",
+      "plugins": [{
+          "plugin": "RANDOMIZER",
+          "pluginURL": "/plugins/randomizer/randomizerStudent.html",
+          "pluginTeacherURL": "/plugins/randomizer/randomizerTeacher.html",
+          "pluginURLDist": "/plugins/randomizer/dist/randomizerStudent.html",
+          "pluginTeacherURLDist": "/plugins/randomizer/dist/randomizerTeacher.html",
+          "pluginTitle": "Randomizer",
+          "pluginServerPath": "./randomizer/serverRandomizer",
+          "icon": "fa-random",
+          "desc":"\"Select a student randomly\""
+        },
+        {
+          "plugin": "BUZZER",
+          "pluginURL": "/plugins/buzzer/buzzerStudent.html",
+          "pluginTeacherURL": "/plugins/buzzer/buzzerTeacher.html",
+          "pluginURLDist": "/plugins/buzzer/dist/buzzerStudent.html",
+          "pluginTeacherURLDist": "/plugins/buzzer/dist/buzzerTeacher.html",
+          "pluginTitle": "Buzzer",
+          "pluginServerPath": "./buzzer/serverBuzzer",
+          "icon": "fa-dot-circle-o",
+          "desc":"\"Press the buzzer to be the first!\""
+        }]
+    },
+    {
+      "category": "word",
+      "title": "Word List",
+      "plugins": [{
+          "plugin": "WHEEL_WORD",
+          "pluginURL": "/plugins/wheelWord/wheelWordStudent.html",
+          "pluginTeacherURL": "/plugins/wheelWord/wheelWordTeacher.html",
+          "pluginURLDist": "/plugins/wheelWord/dist/wheelWordStudent.html",
+          "pluginTeacherURLDist": "/plugins/wheelWord/dist/wheelWordTeacher.html",
+          "pluginTitle": "Word Wheel",
+          "pluginServerPath": "./wheelWord/serverWheelWord",
+          "category": "Word List",
+          "icon": "fa-circle-o",
+          "minLists": 2,
+          "desc":"\"Spin the wheel and guess a letter\""
+        },
+        {
+          "plugin": "SORT_ME",
+          "pluginURL": "/plugins/sortMe/sortMeStudent.html",
+          "pluginTeacherURL": "/plugins/sortMe/sortMeTeacher.html",
+          "pluginURLDist": "/plugins/sortMe/dist/sortMeStudent.html",
+          "pluginTeacherURLDist": "/plugins/sortMe/dist/sortMeTeacher.html",
+          "pluginTitle": "Sort Me",
+          "pluginServerPath": "./sortMe/serverSortMe",
+          "category": "Word List",
+          "icon": "fa-columns",
+          "minLists": 2,
+          "desc":"\"Sort words according to categories\""
+        },
+        {
+          "plugin": "WORD_ATTACK",
+          "pluginURL": "/plugins/wordAttack/wordAttackStudent.html",
+          "pluginTeacherURL": "/plugins/wordAttack/wordAttackTeacher.html",
+          "pluginURLDist": "/plugins/wordAttack/dist/wordAttackStudent.html",
+          "pluginTeacherURLDist": "/plugins/wordAttack/dist/wordAttackTeacher.html",
+          "pluginTitle": "Word Attack",
+          "pluginServerPath": "./wordAttack/serverWordAttack",
+          "category": "Word List",
+          "icon": "fa-bolt",
+          "minLists": 2,
+          "desc":"\"Choose the category for the word\""
+        },
+        {
+          "plugin": "WORD_SEARCH",
+          "pluginURL": "/plugins/wordSearch/wordSearchStudent.html",
+          "pluginTeacherURL": "/plugins/wordSearch/wordSearchTeacher.html",
+          "pluginURLDist": "/plugins/wordSearch/dist/wordSearchStudent.html",
+          "pluginTeacherURLDist": "/plugins/wordSearch/dist/wordSearchTeacher.html",
+          "pluginTitle": "Word Search",
+          "pluginServerPath": "./wordSearch/serverWordSearch",
+          "category": "Word List",
+          "icon": "fa-search",
+          "minLists": 1,
+          "desc":"\"Find the hidden words\""
+        }]
+    }
+  ],
+  "deactivatedPlugins": [
+    {
+      "plugin": "POSTER_MAKER",
+      "pluginURL": "/plugins/posterMaker/posterMakerStudent.html",
+      "pluginTeacherURL": "/plugins/posterMaker/posterMakerTeacher.html",
+      "pluginURLDist": "/plugins/posterMaker/posterMakerStudent.html",
+      "pluginTeacherURLDist": "/plugins/posterMaker/posterMakerTeacher.html",
+      "pluginTitle": "Poster Maker",
+      "pluginServerPath": "./posterMaker/serverPosterMaker",
+      "category": "Responses",
+      "icon": "fa-image",
+      "desc":"Test Description"
+    }
+  ]
+}
+

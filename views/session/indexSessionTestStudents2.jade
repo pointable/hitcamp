@@ -1,0 +1,298 @@
+doctype html
+head
+  title Hit.Camp: !{classroom.name} - Test Students 2x
+  meta(charset='UTF-8')
+  meta(http-equiv='x-ua-compatible', content='IE=edge')
+  meta(name='viewport', content='initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no')
+  meta(name='mobile-web-app-capable', content='yes')
+  meta(name='apple-mobile-web-app-capable', content='yes')
+  meta(name='apple-mobile-web-app-status-bar-style', content='black')   
+
+  link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css')   
+  link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
+  link(rel='stylesheet', href='//fonts.googleapis.com/css?family=Open+Sans|Montserrat')
+
+  //link(rel='stylesheet', href='//cdn.jsdelivr.net/intro.js/0.9.0/introjs.min.css')
+
+  script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js', type='text/javascript')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js')
+  //script(src='/tools/introjs/intro.js')
+
+  //script(src='/guides/indexSessionTestStudents2Guide.js', type='text/javascript')
+
+  style(type='text/css').
+    html, body {
+      font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
+      width: 100%;
+      height:100%;
+      margin: 0px;
+      padding: 0px;
+      overflow: hidden;
+      position: fixed;      
+    }
+    .small .panel {
+      -moz-transform: scale(0.5555, 0.5555); 
+      -webkit-transform: scale(0.5555, 0.5555); 
+      -o-transform: scale(0.5555, 0.5555);
+      -ms-transform: scale(0.5555, 0.5555);
+      transform: scale(0.5555, 0.5555); 
+      -moz-transform-origin: top left;
+      -webkit-transform-origin: top left;
+      -o-transform-origin: top left;
+      -ms-transform-origin: top left;
+      transform-origin: top left;
+
+      margin: 0px;
+      padding: 0px;
+      border: 0px;
+      outline: 2px black solid;
+      position:fixed;
+
+      float:left;      
+      top: 25px;
+      width: 60%;
+      height:180%;
+    }
+
+    .big .panel {
+      margin: 0px;
+      padding: 0px;
+      border: 0px;
+      outline: 2px black solid;
+      position:fixed;
+
+      float:left;      
+      top: 25px;
+      width: 33.33%;
+      height: 743px;
+      height: -moz-calc(100% - 25px);
+      height: -webkit-calc(100% - 25px);
+      height: -o-calc(100% - 25px);
+      height: calc(100% - 25px);
+    }
+
+    #panelStudent1 {
+      left: 33.333%;
+    }
+    #panelStudent2 {
+      left: 66.666%;
+    }
+    @media screen and (orientation:portrait) {
+      .small .panel {
+        float:top;      
+        left: 0px;
+        width: 180%;
+        height:60%;
+      }
+      .big .panel {
+        float:top;      
+        left: 0px;
+        width: 100%;
+        height: 753px;
+        height: -moz-calc(33.33% - 15px);
+        height: -webkit-calc(33.33% - 15px);
+        height: -o-calc(33.33% - 15px);
+        height: calc(33.33% - 15px);
+      }
+      #panel1 {  
+        left: 0px;
+        top: 25px;
+      }
+      #panelStudent1 {  
+        left: 0px;
+        top: -moz-calc(33.33% + 12px);
+        top: -webkit-calc(33.33% + 12px);
+        top: -o-calc(33.33% + 12px);
+        top: calc(33.33% + 12px);
+      }
+      #panelStudent2 {  
+        left: 0px;
+        top: -moz-calc(66.66% + 12px);
+        top: -webkit-calc(66.66% + 12px);
+        top: -o-calc(66.66% + 12px);
+        top: calc(66.66% +12px);
+      }
+    } 
+    .navbar {
+      z-index:100;
+      min-height:25px;
+    }
+    .navbar-nav>li>a{
+      padding-bottom: 0px;
+      padding-top:5px; 
+    }
+    .navbar-brand{
+      padding-top:5px;
+      padding-bottom:0px;
+    }
+    .navbar-toggle{
+      padding: 5px 6px;
+      margin-top: 0px; 
+      margin-bottom: 0px; 
+    }
+    .center{
+      text-align:center;
+    }
+    .btn-preview-back {
+      padding-right :5px;
+      padding-left :15px;
+      background:#8AB533;     
+    }
+    .btn-preview-back:hover {
+      background:#A4D83A !important;
+    }
+    .btn-preview-back-icon {
+      padding-right :5px;
+      padding-left :15px;
+      color:white;
+    }
+    .btn-preview-back-icon + span  {      
+      color:white;
+    }
+    .btn-preview-back > i{
+      padding-right :5px;
+    }
+    .navbar-preview {
+      background:#3C3C3C;
+      color:white;
+    }
+    .bs-example-navbar-collapse-1.navbar-collapse{
+      border-color:black
+    }
+    .navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus{
+      color:white;
+    }
+    .navbar-default .navbar-nav>li>a {
+      color: #B4B4B4;
+    }
+    .navbar-preview{
+      padding-left:0px;
+    }
+
+body(onload='load()')
+  nav.navbar.navbar-default(role='navigation')
+    //
+       Brand and toggle get grouped for better mobile display 
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+      //a.navbar-brand(href='./') Teacher's View + 
+    //
+       Collect the nav links, forms, and other content for toggling 
+    #bs-example-navbar-collapse-1.collapse.navbar-collapse.navbar-preview
+      ul.nav.navbar-nav
+        if idLesson
+          li
+            a(href='/adventures/edit/' + idLesson).btn-preview-back
+              i.fa.fa-arrow-left.btn-preview-back-icon 
+              span Edit Adventure
+          li
+            a(href='0' + pathDataFull) Teacher Only
+          li
+            a(href='1' + pathDataFull) Student Only
+          li
+            a(href='1_2' + pathDataFull) 1 Student
+          li.active
+            a(href='2' + pathDataFull) 2 Students
+          //li
+          //  a(href='4' + pathDataFull) 4 Students
+        else
+          li
+            a(href='/').btn-preview-back
+              i.fa.fa-arrow-left.btn-preview-back-icon 
+              span Home
+          li
+            a(href='0') Teacher Only
+          li
+            a(href='1') Student Only
+          li
+            a(href='1_2') 1 Student
+          li.active
+            a(href='2') 2 Students
+          //li
+          //  a(href='4') 4 Students
+      ul.nav.navbar-nav.navbar-right
+        li
+          a#fullScreen(href='#',onclick='event.preventDefault(); switchFullScreen();') Fullscreen
+        li.active
+          a#setBig(href='#') Bigger
+        li
+          a#setSmall(href='#') Smaller
+    //
+       /.navbar-collapse 
+  //
+     /.container-fluid 
+#divType.big
+  iframe#panel1.panel.panel1(src='/'+ idSession +'/' + pathData)
+  iframe#panelStudent1.panel.panelStudent1(src='/join/'+ idSession+'/?name=Student Middle&' + pathData)
+  iframe#panelStudent2.panel.panelStudent2(src='/join/'+ idSession+'/?name=Student Right&' + pathData)
+script.
+  function load() {
+    $('#setBig').click( function(event) {
+      event.preventDefault();
+      $("#divType").removeClass("small");
+      $("#divType").addClass("big");
+
+      $("#setBig").parent().addClass("active");
+      $("#setSmall").parent().removeClass("active");
+      hideNavBar();
+    } );
+    $('#setSmall').click( function(event) {
+      event.preventDefault();
+      $("#divType").removeClass("big");
+      $("#divType").addClass("small");
+
+
+      $("#setSmall").parent().addClass("active");
+      $("#setBig").parent().removeClass("active");
+      hideNavBar();
+    } );
+    $(document).on('touchmove',function(e){
+      e.preventDefault();
+    });
+  }
+  function switchFullScreen() {
+  //  console.log(document.fullsscreenElement);
+    if (document.fullscreenElement || // alternative standard method
+            document.mozFullScreenElement ||
+            document.webkitFullscreenElement || document.msFullscreenElement) {
+      exitFullscreen();
+    } else {
+      enterFullscreen();
+    }
+    hideNavBar();
+  }
+
+  function enterFullscreen() {
+    console.log("enterFullscreen()");
+    var element = document.documentElement;
+    if (element.requestFullscreen) {
+      element.requestFullscreen();
+    } else if (element.mozRequestFullScreen) {
+      element.mozRequestFullScreen();
+    } else if (element.webkitRequestFullscreen) {
+      element.webkitRequestFullscreen();
+    } else if (element.msRequestFullscreen) {
+      element.msRequestFullscreen();
+    }
+  //  document.getElementById('enter-exit-fs').onclick = exitFullscreen;
+  }
+  function exitFullscreen() {
+    console.log("exitFullscreen()");
+    if(document.exitFullscreen) {
+      document.exitFullscreen();
+    } else if(document.mozCancelFullScreen) {
+      document.mozCancelFullScreen();
+    } else if(document.webkitExitFullscreen) {
+      document.webkitExitFullscreen();
+    }
+  }
+
+  function hideNavBar() {
+    var elementNavBar = $(".navbar-collapse");
+    elementNavBar.removeClass("in");
+    elementNavBar.removeClass("collapsing");
+    elementNavBar.addClass("collapse");
+  }

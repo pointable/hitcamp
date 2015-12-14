@@ -1,0 +1,35 @@
+
+<div class="list-area" data-toggle="tooltip" data-placement="left">
+  <div class="col-md-1 col-sm-1 col-lg-1 padding-0px list-title-description camp-adventure-font"><p>Title:</p></div>
+  <div title="Edit Title" contentEditable=true data-ph="Click here to edit Title" class="col-md-11 col-sm-11 col-lg-11 camp-adventure-font padding-0px list-title js-title-edit"><%= title %></div>
+  <div class="title-edit-area col-md-11 col-sm-11 col-lg-11 padding-0px">
+    <textarea class="title-edit-textarea js-title-edit-area" rows="1"><%= title %></textarea>
+    <a class="btn btn-success js-title-save">
+      <i class="icon-white icon-ok"></i>Save
+    </a>
+    <a class="btn btn-default js-title-cancel">Cancel</a>
+  </div>
+  
+  <% 
+    var string='';
+    _.each(words,function(word){        
+        if(word !== ' ' || word !=='\n'){
+          string += (word + "&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp");
+        }
+       // console.log(string);
+     })
+  %>
+
+  <div title="Edit Word List" contentEditable=true data-ph="Click to edit Word List" class="col-md-12 col-sm-12 col-lg-12 padding-0px list-text js-list-text">
+  <%= string %></div>
+  <div class="list-edit-area js-list-edit-area">
+    <textarea class="list-edit-textarea"></textarea>
+    <a class="btn btn-success js-save">
+      <i class="icon-white icon-ok"></i>Save
+    </a>
+    <a class="btn btn-default js-cancel">Cancel</a>
+  </div>
+  <a class="btn btn-default btn-list-delete js-delete">
+    <i class="fa fa-trash-o"></i> 
+  </a>
+</div>

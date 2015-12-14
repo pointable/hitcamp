@@ -1,0 +1,44 @@
+.combobox-container{
+/*    float: none;
+    margin: 0 auto;*/
+    display:inline-block;
+}
+
+.nav-tabs>li>a.btn-close:hover {
+  border-color:transparent;
+  background-color: transparent;
+ 
+}
+
+.nav-tabs>li>a.btn-close{
+  border-color:transparent;
+  background-color: transparent;
+  float:right;
+}
+#table_div{
+  width: 100%; 
+  max-width: 500px;
+  height: 500px;
+}
+
+.google-visualization-table-td, .google-visualization-table-th, .google-visualization-table-tr-head{
+  text-align: center !important;
+}
+.google-visualization-table-td-number{
+  text-align: center !important;
+}
+
+.answer-correct {
+  background-color: #ccffcc;
+}
+.answer-wrong {  
+  background-color: lightpink;
+}
+
+.glyphicon {
+  font-size: 30px;
+}
+
+.google-visualization-table-td > .marking {
+  padding: 10px;
+}

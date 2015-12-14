@@ -1,0 +1,21 @@
+.combobox-container{
+/*    float: none;
+    margin: 0 auto;*/
+    display:inline-block;
+}
+
+.combobox {
+  font-size: 15px;
+}
+.answer {
+  text-align: center;
+}
+.answer-correct {
+  background-color: #ccffcc;
+}
+.answer-wrong {  
+  background-color: lightpink;
+}
+.answer-submitted {
+  background-color: lightgoldenrodyellow;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>Manage Class</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">    
+    <link rel="stylesheet" type="text/css" href="./css/grouperManage.css" />
+    
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" />
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.0/fastclick.min.js"></script>
+
+    <script type="text/javascript" src="./js/grouperManage.js"></script>
+
+  </head>
+  <body style="width:97%;height:99%;">
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#groups" data-toggle="tab">Groups</a></li>
+<!--      <li><a href="#students" data-toggle="tab">Students</a></li>-->
+      <!--<li><a href="#messages" data-toggle="tab">Messages</a></li>-->
+    </ul>
+      <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane active" id="groups">
+        <h4 style="display:inline;">Number of Groups: </h4>
+        <div class="btn-group" data-toggle="buttons" id="radioNumberOfGroups">
+          <label class="btn btn-primary"  data-value="1">
+            <input type="radio" name="options" id="button1"> <h5>&nbsp&nbsp1&nbsp&nbsp</h5>
+          </label>
+          <label class="btn btn-primary" data-value="2">
+            <input type="radio" name="options" id="button2"> <h5>&nbsp&nbsp2&nbsp&nbsp</h5>
+          </label>
+          <label class="btn btn-primary" data-value="3">
+            <input type="radio" name="options" id="button3"> <h5>&nbsp&nbsp3&nbsp&nbsp</h5>
+          </label>
+          <label class="btn btn-primary" data-value="4">
+            <input type="radio" name="options" id="button4"> <h5>&nbsp&nbsp4&nbsp&nbsp</h5>
+          </label>
+        </div>
+        <br>
+        <h4 style="display:inline;">Selection: </h4>
+        <div class="btn-group" data-toggle="buttons" id="radioSelection">
+          <label class="btn btn-primary" data-value="random">
+            <input type="radio" name="options" id="buttonSelectionRandom" > <h5>&nbsp&nbspRandom&nbsp&nbsp</h5>
+          </label>
+          <label class="btn btn-primary" data-value="select">
+            <input type="radio" name="options" id="buttonSelectionStudent" > <h5>&nbsp&nbspStudent Choice&nbsp&nbsp</h5>
+          </label>
+        </div>
+        <button class="btn btn-success btn-large" id="buttonTriggerGrouping">Start Grouping</button>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-6 col-sm-3 group1" id="group1">
+            </div>
+            <div class="col-xs-6 col-sm-3 group2" id="group2">        
+            </div> 
+            <div class="clearfix visible-xs"></div>
+            <div class="col-xs-6 col-sm-3 group3" id="group3">        
+            </div> 
+            <div class="col-xs-6 col-sm-3 group4" id="group4">        
+            </div>
+          </div>
+        </div>
+      </div>
+<!--      <div class="tab-pane" id="students">
+        <button class="btn btn-success btn-large" id="buttonTriggerDraw"><i class="icon-white icon-share"></i> Trigger Draw</button>
+        <button class="btn btn-success btn-large" id="buttonTriggerRandomizer"><i class="icon-white icon-share"></i> Trigger Randomizer</button>
+        <button class="btn btn-success btn-large" id="buttonTriggerWheelWord"><i class="icon-white icon-share"></i> Trigger Wheel Word</button>
+
+      </div>-->
+    </div>
+
+  </body>
+</html>

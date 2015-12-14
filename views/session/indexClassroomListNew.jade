@@ -1,0 +1,90 @@
+extends ../../layouts/accountEdit
+
+block head
+  title Hit.Camp: Classrooms & Adventures
+
+block neck
+  //link(rel='stylesheet', href='//cdn.jsdelivr.net/intro.js/0.9.0/introjs.min.css')  
+  link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/chardin.js/0.1.2/chardinjs.css')  
+  link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css')
+  
+  if settings.env == "development"
+  //-<!-- build:css public/webappCamp/css/webappCamp_build.min.css -->
+  link(rel='stylesheet', type='text/css', href='/webappCamp/css/webappCamp_style.css')
+  link(rel='stylesheet', type='text/css', href='/webappCamp/css/webappCampGuide_style.css')
+  link(rel='stylesheet', type='text/css', href='/webappCamp/css/dialog.css')  
+  //-<!-- endbuild -->
+
+  if settings.env == "production"
+    link(rel='stylesheet', type='text/css', href='/webappCamp/css/webappCamp_build.min.css')
+
+  script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js', type='text/javascript')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/jqueryui/1.10.4/jquery-ui.min.js', type='text/javascript')
+  //script(src='//cdnjs.cloudflare.com/ajax/libs/chardin.js/0.1.2/chardinjs.min.js')
+  //script(src='/tools/chardinjs/chardinjs.js', type='text/javascript')
+  //script(src='//cdn.jsdelivr.net/intro.js/0.9.0/intro.min.js')
+  //script(src='/guides/indexClassroomListGuide.js')
+
+  script(src='/tools/click/js/click.js', type='text/javascript')
+
+  if settings.env == "development"
+    - console.log("##Development-Camp");
+    //-<!-- build:js public/webappCamp/js/libs/build/camp.min.js -->      
+    script(src='/tools/libs/misc/jsuri-1.1.1.min.js', type='text/javascript')
+    script(src='/tools/libs/misc/preload.js', type='text/javascript')
+    //-<!-- endbuild -->
+    script(data-main='/webappCamp/js/require_main', src='/webappCamp/js/libs/require/require.js')
+
+  if settings.env == "production"
+    - console.log("##Production-Camp");
+    script(src='/webappCamp/js/libs/build/camp.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js')
+    script(src='/webappCamp/js/require_main.built.js')
+  
+  //script(src='/tools/chardinjs/chardinjs.js', type='text/javascript')
+
+block feet
+
+block body
+  #header-region  
+  #main-region
+  #dialog-region
+
+  .adventure-guide
+    .adventure-introduction-area.small
+      .adventure-introduction-close.js-guide-close
+        i.fa.fa-times-circle-o.fa-2x
+      label.checkbox-do-not-display
+        input#checkboxHide.js-display(type='checkbox')
+        |  Do not display this again
+      .guide-intro
+        .adventure-guide-text
+          span &nbsp;
+          span.adventure-guide-section.adventure-hitcamp-text Hit.Camp
+          span.adventure-guide-section.adventure-hitcamp-subtitle
+            | Introduction for Teachers <br><br>
+        .demo-live
+          .adventure-guide-section.adventure-btn-area.js-live-demo
+            a.btn.btn-success.btn-start-guide Start Live Tutorial
+          .adventure-guide-section
+            span.intro-note-desktop *optimized for desktop view on Chrome/Safari
+        .demo-mobile
+          .adventure-guide-section.adventure-btn-area.js-live-demo
+            a.btn.btn-default 
+              strike  Start Live Demo
+          .adventure-guide-section
+            span.intro-note-desktop *only available for larger screens
+        
+      .guide-view
+
+
+  script(type='text/template', id='data-results') !{data.results}
+  script(type='text/template', id='data-lessons') !{data.lessons}
+
+  //script(type='text/template', id='data-session') !{sessionData}
+  script(type='text/template', id='data-hideGuide') !{data.hideGuide}
+
+  script(type='text/template', id='data-guide-view')
+    iframe#guide-demo-frame(src='/classroom/preview/53a83119f297a60a006454a3/teststudents/1_1')
+    //div.guide-view-footer
+

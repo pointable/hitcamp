@@ -1,0 +1,83 @@
+doctype html
+html
+  head
+    block head
+      title #{title}
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    link(rel='stylesheet', href='/layouts/core.min.css?#{cacheBreaker}')
+    block neck
+    script(type='text/javascript').
+      window.$zopim||(function(d,s){var z=$zopim=function(c){z._.push(c)},$=z.s=
+      d.createElement(s),e=d.getElementsByTagName(s)[0];z.set=function(o){z.set.
+      _.push(o)};z._=[];z.set._=[];$.async=!0;$.setAttribute('charset','utf-8');
+      $.src='//cdn.zopim.com/?QeunQuc2DOyM2gGHARJI4UWkZzxgzIcQ';z.t=+new Date;$.
+      type='text/javascript';e.parentNode.insertBefore($,e)})(document,'script');
+
+    
+  body
+    div.navbar.navbar-default.navbar-fixed-top
+      div.container
+        div.navbar-header
+          a.navbar-brand(href='/')
+            img.navbar-logo(src='/media/hitcamp_logo_black_110x30.png')
+            //img.navbar-logo(src='/media/logo-symbol-64x64.png')
+            //span.navbar-brand-label #{projectName}
+            span.navbar-brand-label
+          button.navbar-toggle.collapsed(data-toggle='collapse', data-target='.my-navbar-collapse')
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+        div.navbar-collapse.my-navbar-collapse.collapse
+          ul.nav.navbar-nav
+            //li: a(href='/') Home
+            //li: a(href='/join/') Student Join
+            if user && user.username
+              li: a(href='/') Classrooms & Adventures
+            //li: a(href='/adventures/edit/') Adventure Planner
+            //li: a(href='/about/') About
+            if !user
+              li: a(href='/signup/') Sign Up
+            li: a(href='/contact/') Contact
+          ul.nav.navbar-nav.navbar-right
+            if user && email
+              li: a(href='/account/settings/')
+                if user.email === "[email protected]"                
+                  i.fa.fa-user
+                  |  Account
+                else  
+                  i.fa.fa-user
+                  |  #{user.email}
+            else
+              li: a(href='/login/')
+                i.fa.fa-user
+                |  Teacher Log In
+            span(style='position:absolute;font-size: 12px;color: #777;')  
+              |  #{versionNumber}
+
+    div.page
+      div.container
+        block body
+
+    div.footer
+      div.container
+        span.copyright.pull-right
+          |&#169; #{copyrightYear} #{copyrightName}
+        ul.links
+          li: a(href='/') Home
+          li: a(href='/contact/') Contact
+          li: span Version: 
+            |  #{versionNumber}
+          li: span Date Started: 
+            |  #{restartDate} (UTC)
+        div.clearfix
+
+    div.ajax-spinner
+      img(src='/media/ajax-pulse.gif')
+
+    //if lte IE 9
+      script(src='/layouts/ie-sucks.min.js?#{cacheBreaker}')
+    script(src='/layouts/core.min.js?#{cacheBreaker}')
+
+    script(type='text/javascript').
+      $zopim(function() { $zopim.livechat.bubble.hide(); });
+    block feet

@@ -1,0 +1,16 @@
+<a href="#" class="btn-activity js-back"><i class="fa fa-arrow-left fa-2x btn-activity-back"></i></a>
+<div class="slides-title-wrapper camp-adventure-font text-center"><span class="edit-adventure-title">Edit Slides & Questions</span></div>
+<div class="btn-group preview-actions">
+  <a href="/classroom/preview/<%= document.lessonID %>/teststudents/1_2" class="btn btn-success js-preview-1_2student" title="Preview Adventure"><i class='fa fa-play'></i> Preview Adventure</a>        
+  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu " role="menu">
+    <li><a href="/classroom/preview/<%= document.lessonID %>/teststudents/0" target="preview" class="js-preview-teacher">Preview as Teacher </a></li>
+    <li><a href="/classroom/preview/<%= document.lessonID %>/teststudents/1" target="preview" class="js-preview-1student">Preview as Student</a></li>    
+    <li><a href="/classroom/preview/<%= document.lessonID %>/teststudents/1_2" target="preview" class="js-preview-1_2students">With 1 Mock Student</a></li>    
+    <li><a href="/classroom/preview/<%= document.lessonID %>/teststudents/2" target="preview" class="js-preview-2students">With 2 Mock Students</a></li>    
+    <!--<li><a href="/classroom/preview/<%= document.lessonID %>/teststudents/4" class="js-preview-4students">Preview with 4 test students</a></li>-->    
+  </ul>
+</div>

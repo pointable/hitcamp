@@ -1,0 +1,55 @@
+html, body {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+  width:100%;
+  height:100%;
+  overflow-y:auto;
+  overflow-x:hidden;
+
+}  
+.tab-content  {
+  padding-top: 36px;
+}
+.col-centered{
+  /*    float: none;
+      margin: 0 auto;*/
+  display:inline-block;
+}
+
+.keyboard{
+  font-family: Courier New;
+  font-weight:bold;
+  text-align: center;
+}
+.boardfont {  
+  font-family: Courier New;
+  font-weight:bold;
+  font-size: 20px;
+  margin: 2px;
+  padding:15px
+}
+
+.keyboard > .btn-primary {
+  margin-top: 5px;
+  padding: 12px;
+  font-weight:bold;
+}
+
+#container {
+  width: 100%;
+  text-align:center;
+  margin:auto;
+  overflow-x:hidden;
+}
+
+.btn-primary.disabled.correct {
+  background-color: greenyellow;
+  color: black;
+}
+.btn-primary.disabled.taken {
+  background-color: brown;
+  color: white;
+} 

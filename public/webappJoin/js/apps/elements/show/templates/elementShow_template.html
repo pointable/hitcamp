@@ -1,0 +1,55 @@
+<div class="activty-question-title camp-adventure-font text-center"><%= activityTitle %></div> 
+<div class="row question-display margin-0px">
+  <!--    <div class="col-xs-1 col-md-1 col-lg-1">
+        <a class="btnNav btnPrevious js-question-previous " title="Previous question"></a>
+      </div>
+  -->
+  <div class="btn-previous-area js-question-previous sync-buttons">
+    <a class="btn btn-previous " href="#"><i class="fa fa-chevron-left fa-3x "></i></a>
+    <!-- <a class="btnNav btnPrevious js-question-previous " title="Previous question"></a>-->
+  </div>
+  <div class="col-xs-12 col-md-12 col-lg-12 padding-0px margin-0px frameContent" id="divInsertFrame">
+    <% if(!isImage) { %>
+    <div class="image" id="imageHolder">
+      <div class="trick"></div>
+      <img id="imageDoc" src="<%= thumbnail %>">
+    </div>
+    <iframe scrolling="yes" id="frameDoc" src="<%= resourceUrl %>" frameborder="0" onload="$('#imageHolder').css('display', 'none');"></iframe>
+    <% } else { %>
+    <div class="image">
+      <div class="trick"></div>
+      <img id="imageDoc" src="<%= resourceUrl %>" onload="document.initCanvas()">
+      <canvas id="c" height="0px" width="0px" style="border:1px solid #aaa;position:absolute;"></canvas>
+      <!--<a href="#" id="buttonWalkthrough" class="btn btn-xs btn-default">Sync Slides</a>-->
+    </div>
+    <% } %>
+  </div>
+  <a class="btn btn-close js-question-close sync-buttons" href="#"><i class="fa fa-times fa-3x"></i></a>
+  <div class="btn-next-area js-question-next sync-buttons">
+    <!--  <a class="btnNav btnCloseElement js-question-close" id="clear-selected" title="Close"></a>-->        
+    <a class="btn btn-next " href="#"><i class="fa fa-chevron-right fa-3x "></i></a>
+    <!-- <a class="btnNav btnNext  js-question-next" title="Next question"></a>-->
+  </div>
+  <!--
+      <div class="col-xs-1 col-md-1 col-lg-1">
+        <a class="btnNav btnCloseElement js-question-close" id="clear-selected" title="Close"></a>
+      </div> 
+      <div class="col-xs-1 col-md-1 col-lg-1">
+        <a class="btnNav btnNext  js-question-next" title="Next question"></a>
+      </div>    
+  -->
+</div>
+<div class="row  margin-0px question-text-area">
+  <div class="question-text-input col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0px">
+    <div class="number-question  col-lg-1 col-md-1 col-sm-1 col-xs-2 padding-0px">
+      <!--        <span  class="question-label">Question : </span>-->
+      <span class="btn-circle-question btn-number"><%= index %></span>
+    </div>
+    <div class=" col-lg-10 col-md-10 col-sm-10 col-xs-9 question-text js-question-text padding-0px" id="question-text">
+      <div class="vcenter"><%= questionText %></div>
+    </div>
+  </div>
+</div>
+<div class='answer-area'></div>
+
+

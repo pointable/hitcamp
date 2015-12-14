@@ -1,0 +1,24 @@
+<!--<div class="element-panel-index"><%= index %></div>-->
+
+<div class="element-index"><%= index %></div>
+<div class="element-panel-preview js-show">
+  <div class="btn-element " data-toggle="tooltip" data-placement="left" title="Open Element">
+    <% if( thumbnail === "about:blank" &&  questionText !== "") {%>
+    <div  class="btn-image "><%= questionText %> </div>
+    <% } else { %>
+    <div class="btn-image " style='background-image: url("<%= thumbnail %>");'></div>
+    <% } %>
+  </div>
+</div>
+<!--<div class="btn-overlay grey"></div>-->
+<!--<div class="index number">
+  <span class="circle-index index-list-element"><%= index %></span>
+</div>-->
+<!--<div class="btn-overlay-description">
+  <p></p>
+</div>
+  <div class="btn-edit">
+    <a  class="btnNav btnDelete js-delete"></a>
+  </div>-->
+
+<!--  <div class="line"></div>-->

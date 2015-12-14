@@ -1,0 +1,149 @@
+.special {
+  text-align: center;
+}
+.super-awesome {
+  display: block;
+  margin-top: -15px;
+  color: #7f7f7f;
+  font-size: 20em;
+}
+
+
+.adventure-guide{  
+  content: "";
+  display: none;
+  position: fixed; /* could also be absolute */
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 9999;
+  background-color: rgba(0,0,0,0.8);
+  text-align: center;
+}
+
+.adventure-introduction-area{
+  display:block;
+  position:relative;
+  /*left:50%;*/
+  top:20px;
+  /*  margin-left: -150px;
+    margin-top: -200px;*/
+  margin: 0 auto;
+  width:95%;
+  height:95%;
+  border:2px solid white;
+  background-color: rgba(0,0,0,1.0);
+}
+
+.small{
+  position:absolute;
+  left:50%;
+  top:50%;
+  margin-left: -150px;
+  margin-top: -200px;
+  width:300px;
+  height:300px;
+}
+
+.guide-view{
+  display:none;
+  position: relative;
+  top: 30px;
+  height:100%;
+  height: calc(100% - 15px);
+  width:100%;
+}
+.guide-view-footer{
+  position: relative;
+  top: 0px;
+  height:150px;
+  width:100%;
+}
+
+#guide-demo-frame {
+  margin: 0 auto;
+  width: 95%;
+  height: 95%;
+  /*calc(100% - 180px);*/
+}
+
+.adventure-guide-text{
+  margin-top: 30px;
+  color:white;
+}
+
+
+.adventure-introduction-title{
+  font-size: 50px;
+  display: block;
+}
+
+.adventure-guide-section{
+  display:block;
+  padding:3px;  
+}
+
+.adventure-hitcamp-text{
+  font-family:Comic Sans MS,Helvetica Neue;
+  font-size:40px;
+  font-weight:bold;
+  font-style:normal;
+}
+.adventure-hitcamp-subtitle{
+  font-family:Comic Sans MS,Helvetica Neue;
+  font-size:20px;
+  font-weight:normal;
+  font-style:normal;
+}
+.adventure-seconds{
+  font-size:50px;
+}
+.btn-start-guide{
+  font-size:20px;
+  margin-top: 15px;
+  margin-right: 5px;
+}
+
+
+.intro-note-desktop{
+  color:white;
+  padding-top: 3px;
+}
+
+.checkbox-do-not-display{
+  display: inline-block;
+  position: absolute;
+  padding: 5px;
+  right: 40px;
+  color:white;
+  text-align: right;
+  font-size: 12px
+}
+
+.adventure-introduction-close{
+  position:absolute;
+  padding: 5px;
+  color:grey;
+  right:0px;
+}.adventure-introduction-close:hover{
+  color:white;
+}.adventure-introduction-close:active{
+  margin-top: 1px;
+}
+
+
+.demo-mobile {
+  display:none;
+}
+.demo-live {
+  display:block;
+}
+@media (max-width: 700px) {
+  .demo-mobile {
+    display:block;
+  }
+  .demo-live {
+    display:none;
+  }
+}

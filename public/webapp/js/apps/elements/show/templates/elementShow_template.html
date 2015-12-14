@@ -1,0 +1,75 @@
+<div class="frameContent padding-0px
+     <% if(!resourceUrl || resourceUrl === "about:blank") { %>
+     frameContentEmptyMark
+     <% }%>   
+     " >
+     <!--  <a class="btn-engage-close-element  js-question-close">
+         <i class="fa fa-times fa-2x"></i>
+       </a>-->
+
+     <div class="btn-previous-area js-previous">
+    <a class="btn-engage ">
+      <i class="fa fa-chevron-left fa-2x btn-previous "></i>    
+    </a>            
+  </div>
+
+  <% if(!isImage) { %>
+  <iframe scrolling="yes" id="frameDoc" src="<%= resourceUrl %>" frameborder="0"></iframe>
+  <!--<img id="imageDoc" src="about:blank" style='display:none'>-->
+  <div id="imageDocHolder" class="image"  style='display:none'>
+    <div class="trick"></div>
+    <img id="imageDoc" src="about:blank" onload="" crossOrigin="Anonymous">
+  </div>
+  <% } else { %>      
+  <iframe scrolling="yes" id="frameDoc" src="about:blank" frameborder="0"  style='display:none'></iframe>
+  <!--<img id="imageDoc" src="<%= resourceUrl %>" crossOrigin="Anonymous">-->
+  <div  id="imageDocHolder" class="image">
+    <div class="trick"></div>
+    <img id="imageDoc" src="<%= resourceUrl %>"  onload="" crossOrigin="Anonymous">
+  </div>
+  <div class="crop-button-area"> 
+    <a href="#" class="btn btn-sm btn-default js-crop"><span class="fa fa-crop"></span> Crop</a>
+    <div class="crop-ok-cancel" >      
+      <a href="#" class="btn btn-danger btn-default js-crop-cancel"><b>&nbsp;X&nbsp;</b> </a> 
+      <a href="#" class="btn btn-success btn-default js-crop-ok" style="display:none"><span class="fa fa-check"></span></a>
+    </div>  
+    <div id="crop-saving" style="display:none;">
+      <i class="fa fa-spinner fa-spin"></i>
+      <span><b>Saving...</b></span>
+    </div>
+    <div id="crop-saved" style="display:none;">
+      <span><b> &nbsp; Saved</b></span>
+    </div>
+  </div>
+  <!--  <div style="position:absolute; top:50px;left:10px;"> </div>
+    <div style="position:absolute; top:50px;left:50px;"> </div>-->
+  <% } %> 
+
+  <div class="btn-next-area js-next">
+    <a class="btn-engage  ">
+      <i class="fa fa-chevron-right fa-2x btn-next"></i>
+    </a>
+  </div>
+</div>
+
+<div class="frameQuestions">
+  <!--frame Question-->
+  <div class="row margin-0px">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 question-title">
+      Question/Description:
+    </div>
+    <div id="question-input-panel" class="question-text-input col-lg-12 col-md-12 col-sm-12 col-xs-12 ">
+
+    </div>
+  </div>
+  <div class="response-type-wrapper">
+    <span class="response-type">Answers: </span>
+<!--    <span class="response-type">Answer Types:</span>
+    <select class="js-response-select" id="response-select">
+      <option value="mul">Multiple Choice</option>
+      <option value="text">Text Response</option>       
+    </select> -->
+  </div>
+  <div id="response-panel" class="row margin-0px">
+  </div>   
+</div>

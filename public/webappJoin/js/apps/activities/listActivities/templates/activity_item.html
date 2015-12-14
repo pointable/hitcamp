@@ -1,0 +1,54 @@
+<% if (tileType === "checkpoint") { %>
+<div class="activity-checkpoint ">
+  <% if (activityType ==="media" && elements.length ===0  ) { %>
+  <% console.log("this actitvity", elements.length) %>
+  <div class="checkpoint-wrapper js-move">
+    <div class="checkpoint markerBlue ">
+      <!--      <img class="checkpoint-img checkpoint-shadow">-->
+    </div>
+    <div class="checkpoint-desc">?</div>
+  </div>  
+  <% } else if (activityType ==="media" && elements.length !== 0 && checkPointIcon === "" ) { %>
+  <div class="checkpoint-wrapper js-move ">
+    <div class="checkpoint markerBlue">
+      <!--      <img class="checkpoint-img " src="/webapp/images/checkpoint_blue.svg">-->
+    </div>
+    <div class="checkpoint-desc">Q</div>
+  </div>
+  <% } else if (activityType ==="media" && elements.length !== 0 && checkPointIcon !== "" ) { %>
+  <div class="checkpoint-wrapper js-move ">
+    <div class="checkpoint  <%= checkPointIcon %>">
+      <!--      <img class="checkpoint-img " src="/webapp/images/checkpoint_blue.svg">-->
+    </div>
+    <div class="checkpoint-desc">Q</div>
+  </div>  
+  <% } else if (activityType ==="wordList" && pluginApp === "" ){  %>
+  <div class="checkpoint-wrapper js-move">    
+    <div class="checkpoint markerBrown"></div>
+    <div class="checkpoint-desc">W</div>
+  </div>  
+  <% } else if (activityType ==="wordList" && checkPointIcon === ""){  %>
+  <div class="checkpoint-wrapper js-move">   
+    <div class="checkpoint markerBrown"></div>         
+    <div class="checkpoint-desc "> <i class="fa <%= pluginAppIcon %>"></i> </div>  
+  </div>
+  <% } else if (activityType ==="wordList" && checkPointIcon !== ""){  %>
+  <div class="checkpoint-wrapper js-move">   
+    <div class="checkpoint <%= checkPointIcon %>"></div>         
+    <div class="checkpoint-desc "> <i class="fa <%= pluginAppIcon %>"></i> </div>  
+  </div>  
+  <% } else { %>
+  <div class="checkpoint-wrapper js-move">    
+    <div class="checkpoint markerBlue "></div>
+    <div class="checkpoint-desc"></div>
+  </div>  
+  <% }  %>
+  <div class="activity-coordinate" data-x="<%= x  %>" data-y="<%= y %>" ></div>
+
+  <% if( activityTitle !== "Edit Title") {%>
+  <div class="activity-description ">
+    <span class="activity-activity-desc js-move"><%= activityTitle %></span>
+  </div>
+  <% }%>
+</div>
+<% }  %>

@@ -1,0 +1,23 @@
+<div class="btn-element js-show" data-toggle="tooltip" data-placement="left" title="Open Element">
+    <% if( thumbnail === "about:blank" &&  questionText !== "") {%>
+    <div  class="btn-image "><%= questionText %> </div>
+    <% } else { %>
+    <div class="btn-image " style='background-image: url("<%= thumbnail %>");'></div>
+    <% } %>
+  <div class="btn-overlay grey"></div>
+  <div class="index number">
+    <span class="circle-index index-list-element"><%= index %></span>
+  </div>
+  <div class="btn-overlay-description">
+    <p></p>
+  </div>
+  <div class="btn-edit">
+    <a  class="btnNav btnDelete js-delete"></a>
+  </div>
+</div>
+<!-- <div class="edit-element-lower-container dullBlueShade">
+  <textarea class="input-element" rows="2" cols="50" placeholder="Description"></textarea>
+  <div class="edit-element-delete-container">
+    <button class="btnDelete btnNav js-delete"></button>
+  </div>                    
+</div>-->

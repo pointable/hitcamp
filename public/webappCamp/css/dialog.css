@@ -1,0 +1,13 @@
+//filepicker dialog
+#filepicker {  
+  position: fixed; /* could also be absolute */
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 99999999;
+  background-color: rgba(0,0,0,0.8);
+  text-align: center;
+}
+
+//filepicker dialog end

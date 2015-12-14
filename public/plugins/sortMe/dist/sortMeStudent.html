@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css">   
+    <link rel="stylesheet" href="css/c5d0fe70.sortMeStudent.min.css"/>
+    
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script> 
+    <script src="//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.0/fastclick.min.js"></script>
+    
+    <script src="js/29d3adfc.sortMeStudent.min.js"></script>
+
+  </head>
+  <body style="width:100%;min-height:100%;overflow-y:auto;overflow-x:hidden;">
+    <div style="float:right;">
+<!--      <button type="button" class="btn btn-default btn-lg" id="buttonStar">
+      <span class="glyphicon glyphicon-star"></span> Star
+    </button>-->
+    </div>
+    <!--<div id="divName">   <h2>Name</h2></div>-->
+    <!-- Nav tabs -->
+<!--    <ul class="nav nav-tabs">
+      <li class="active"><a href="#play" data-toggle="tab">Play</a></li>
+      <li><a href="#history" data-toggle="tab">History</a></li>
+      <li><a href="#messages" data-toggle="tab">Messages</a></li>
+      <li><a href="#settings" data-toggle="tab">Settings</a></li>
+    </ul>-->
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <!--<div class="tab-pane active" id="play">-->
+      <!--<div id="no-drop" class="drag-drop"> #no-drop </div>-->
+
+
+      <!--<div id="outer-dropzone" class="dropzone">-->
+      <div id="dropzoneBlock" style="display:block">
+        <div id="inner-dropzone1" class="dropzone inner-dropzone">
+          <div id="categoryAnswered1" class="scroll">
+          </div>
+          <div style="height:25%;"> <h3 id="category1" style="margin-top:5px;">Category 1</h3> </div>
+        </div>
+        <div id="inner-dropzone2" class="dropzone inner-dropzone">
+          <div id="categoryAnswered2" class="scroll">
+          </div>
+          <div style="height:25%;"> <h3 id="category2" style="margin-top:5px;">Category 2</h3> </div>
+        </div>
+      </div>
+      <!--</div>-->
+      <!--<div class="words">-->
+<!--        <div id="yes-drop1" class="drag-drop"> #yes-drop </div>
+        <div id="yes-drop2" class="drag-drop"> #yes-drop </div>-->
+      <!--</div>-->
+      <!--</div>-->
+<!--      <div class="tab-pane" id="history">
+        History
+      </div>-->
+      <!--<div class="tab-pane" id="settings">...</div>-->
+    </div>
+    <script type="text/template" class="template" id="templateWord">
+      <div id="<%- wordData.wordID %>" class="drag-drop category<%- wordData.category %>"><%- wordData.word %></div>
+    </script>
+    
+    <script type="text/template" class="template" id="templateResults">
+      <div class="center-block" style="text-align:center">
+        <h3><%- title %></h3>        
+        <p style="color:darkgreen; font-size:20px;"><i class="fa fa-check fa-fw"></i>: <%- countCorrect %></p>
+        <p style="color:darkred; font-size:20px;"><i class="fa fa-times fa-fw"></i>: <%- countWrong %></p>
+      </div>
+    </script>
+  </body>
+</html>

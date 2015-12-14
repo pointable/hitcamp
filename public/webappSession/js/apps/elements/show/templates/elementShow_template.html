@@ -1,0 +1,119 @@
+<div class="activty-question-title camp-adventure-font text-center"><%= activityTitle %></div>  
+<div class="btn-previous-area ">
+  <a class="btn btn-previous js-question-previous " href="#"><i class="fa fa-chevron-left fa-3x "></i></a>
+  <!-- <a class="btnNav btnPrevious js-question-previous " title="Previous question"></a>-->
+</div>
+<div class="btn-next-area ">
+  <!--  <a class="btnNav btnCloseElement js-question-close" id="clear-selected" title="Close"></a>-->        
+  <a class="btn btn-next js-question-next" href="#"><i class="fa fa-chevron-right fa-3x "></i></a>
+  <!-- <a class="btnNav btnNext  js-question-next" title="Next question"></a>-->
+</div>
+<div class="row question-display margin-0px">
+  <!--  <div class="col-xs-1 col-md-1 col-lg-1">
+      <a class="btnNav btnPrevious js-question-previous " title="Previous question"></a>
+    </div>-->
+
+  <div class="col-xs-12 col-md-12 col-lg-12 padding-0px margin-0px frameContent" id="divInsertFrame">
+    <% if(!isImage) { %>      
+    <div class="image" id="imageHolder">
+      <div class="trick"></div>
+      <img id="imageDoc" src="<%= thumbnail %>">
+    </div>
+    <iframe scrolling="yes" id="frameDoc" src="<%= resourceUrl %>" frameborder="0" onload="$('#imageHolder').css('display', 'none');"></iframe>
+    <% } else { %>
+
+    <div class="image">
+      <div class="trick"></div>
+      <img id="imageDoc" src="<%= resourceUrl %>"  onload="document.initCanvas()">
+      <canvas id="c" height="0px" width="0px" style="border:1px solid #aaa;position:absolute;"></canvas>
+      <!--<a href="#" id="buttonWalkthrough" class="btn btn-xs btn-default">Sync Slides</a>-->
+    </div>
+    <% } %>
+  </div>
+  <a class="btn btn-close js-question-close" href="#"><i class="fa fa-times fa-3x"></i></a>
+
+  <!--    <div class="col-xs-1 col-md-1 col-lg-1">
+        <a class="btnNav btnCloseElement js-question-close" id="clear-selected" title="Close"></a>
+      </div> 
+      <div class="col-xs-1 col-md-1 col-lg-1">
+        <a class="btnNav btnNext  js-question-next" title="Next question"></a>
+      </div>    -->
+</div>
+
+
+<div class="row margin-0px question-text-area">
+  <div class="question-text-input col-lg-12 col-md-12 col-sm-12 col-xs-12 padding-0px">
+    <div class="number-question  col-lg-1 col-md-1 col-sm-1 col-xs-2 padding-0px">
+      <!--      <span class="question-label" >Question : </span>-->
+      <span class="btn-circle-question btn-number"><%= index %></span>
+    </div>
+    <div class=" col-lg-10 col-md-10 col-sm-10 col-xs-9 question-text js-question-text padding-0px " id="question-text">
+      <div class="vcenter"><%= questionText %></div>
+    </div>
+  </div>
+</div>  
+<div class="answer-area row">
+  <div class="row margin-0px answer-bar">
+    <div class="student-answer-stat">
+      <span class="student-answered-desc">Students answered: </span>
+      <div class="btn-students-answered text-center">
+        <span class="student-answered js-students-answered">1</span>
+        <span>/</span>
+        <span class="total-students js-students-total">10</span>
+      </div> 
+    </div>
+    <a class="btn btn-show-answers js-answers-show">Reveal Answers and Results</a>
+    <a class="btn btn-default btn-reset js-answers-reset"><i class="fa fa-refresh"></i> Reset</a>
+  </div>
+  <% if ( responseType === 'mul' ) { %>
+  <div class="col-md-6 col-sm-6 col-xs-12 col-answer-a padding-0px">       
+    <div class="btn-answer-a answer-text js-answerA" id="answer-text-a">
+      <div class="result-overlay dullPink"></div>
+      <div class="result-text">
+        <div class="col-md-1 col-sm-1 col-xs-1 label-a answer-text-label-area padding-0px">
+          <span class="answer-text-label">A</span>
+        </div>  
+        <div class="col-md-11 col-sm-11 col-xs-11"><%= answerTextA %></div>
+      </div>
+      <div class="col-md-1 col-sm-1 col-xs-1 label-a answer-text-label-area padding-0px"></div>                                       
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-12 col-answer-b padding-0px">        
+    <div class="btn-answer-b answer-text js-answerB" id="answer-text-b">
+      <div class="result-overlay dullGreen"></div>
+      <div class="result-text">
+        <div class="col-md-1 col-sm-1 col-xs-1  label-b answer-text-label-area padding-0px">
+          <span class="answer-text-label">B</span>
+        </div>
+        <div class="col-md-11 col-sm-11 col-xs-11"><%= answerTextB %></div>        
+      </div>       
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-12 col-answer-c padding-0px">        
+    <div class="btn-answer-c answer-text js-answerC" id="answer-text-c">
+      <div class="result-overlay dullBlue"></div>
+      <div class="result-text">
+        <div class="col-md-1 col-sm-1 col-xs-1 answer-text-label-area label-c padding-0px">
+          <span class="answer-text-label">C</span>
+        </div>
+        <div class="col-md-11 col-sm-11 col-xs-11"><%= answerTextC %></div>          
+      </div> 
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-6 col-xs-12  col-answer-d padding-0px">       
+    <div class="btn-answer-d answer-text js-answerD" id="answer-text-d">
+      <div class="result-overlay dullYellow"></div>
+      <div class="result-text">
+        <div class="col-md-1 col-sm-1 col-xs-1 answer-text-label-area label-d padding-0px">
+          <span class="answer-text-label">D</span>
+        </div>               
+        <div class="col-md-11 col-sm-11 col-xs-11"><%= answerTextD %></div> 
+      </div>
+    </div>
+  </div>
+  <% } %> 
+</div>
+
+<% if ( responseType === 'text' ) { %>
+<div id='response-panel'></div>
+<% } %>

@@ -1,0 +1,113 @@
+extends ../../layouts/account
+
+block head
+  title Lesson Plans
+
+block neck
+  link(rel='stylesheet', href='//cdn.jsdelivr.net/intro.js/0.9.0/introjs.min.css')
+  link(rel='stylesheet', href='/views/adventures/index.min.css?#{cacheBreaker}')
+
+block feet
+  script(src='//cdn.jsdelivr.net/intro.js/0.9.0/intro.min.js')
+  script(src='/guides/indexLessonsListGuide.js')
+  script(src='/views/adventures/indexLessonsList.min.js?#{cacheBreaker}')
+
+block body
+  div.row
+    div.col-xs-12
+      div#header
+      //div#filters
+      div#results-table
+      div#results-paging
+
+  script(type='text/template', id='tmpl-header')
+    div.page-header
+      form.form-inline.pull-right
+        div.input-group.intro-create-adventure
+          input.form-control#createAdventure(name='lessonName', type='text', placeholder='enter new Adventure title', value!='', style='width: auto;')
+          button.btn.btn-primary.btn-add(type='button') Create Adventure
+      h1 Adventures&nbsp; 
+        button.btn.btn-sm.btn-info.btn-intro(type='button')
+          i.fa.fa-info-circle.fa-fw
+          | &nbsp; Guide
+
+  script(type='text/template', id='tmpl-filters')
+    form.filters
+      div.row
+        div.col-sm-3
+          label Lesson Search
+          input.form-control(name='lessonName', type='text')
+        div.col-sm-2
+          label Completed
+          select.form-control(name='isComplete')
+            option(value='') either
+            option(value='yes') yes
+            option(value='no') no
+        div.col-sm-2
+          label Sort By
+          select.form-control(name='sort')
+            option(value='_id') Date Created &#9650;
+            option(value='-_id') Date Created &#9660;
+
+  script(type='text/template', id='tmpl-results-table')
+    table.table.table-striped
+      thead
+        tr
+          th Adventure
+          //th Completed
+          //th id
+          th
+      tbody#results-rows
+
+  script(type='text/template', id='tmpl-results-row')
+    td.td-adventure-name       
+      <% if (isLocked) { %> 
+      <span class="fa fa-lock fa-fw" style="margin-top:0px;right:5px;"></span>
+      <% } %>
+      <%= lessonName %>
+    //td <%= isComplete %>
+    //td <%= _id %>
+    td
+      <% if (!isLocked) { %> 
+      .btn-group.td-adventure-configuration
+        a.btn.btn-primary.edit(href='#')
+            i.fa.fa-edit.fa-fw
+            | &nbsp; Adventure Planner
+          a.btn.btn-primary.dropdown-toggle(data-toggle='dropdown', href='#')
+            span.fa.fa-caret-down
+          ul.dropdown-menu
+            li
+              a.edit(href='#')
+                i.fa.fa-edit.fa-fw
+                | &nbsp; Adventure Planner
+            li
+              a.clone(href='#')
+                i.fa.fa-copy.fa-fw
+                | &nbsp; Clone
+            li
+              a.delete(href='#')
+                i.fa.fa-trash-o.fa-fw
+                | &nbsp; Delete
+      <% }else { %>
+      .btn-group.td-adventure-configuration
+        a.btn.btn-primary.clone(href='#')
+          i.fa.fa-copy.fa-fw
+          | &nbsp; Clone
+      <% } %> 
+
+
+  script(type='text/template', id='tmpl-results-empty-row')
+    tr
+      td(colspan='5') no lessons matched
+
+  script(type='text/template', id='tmpl-results-paging')
+    div.well
+      div.btn-group.pull-left
+        button.btn.btn-default(disabled=true) Page <%= pages.current %> of <%= pages.total %>
+        button.btn.btn-default(disabled=true) Rows <%= items.begin %> - <%= items.end %> of <%= items.total %>
+      div.btn-group.pull-right
+        button.btn.btn-default.btn-page.btn-prev(data-page!='<%= pages.prev %>') Prev
+        button.btn.btn-default.btn-page.btn-next(data-page!='<%= pages.next %>')  Next
+      div.clearfix
+
+  script(type='text/template', id='data-results') !{data.results}

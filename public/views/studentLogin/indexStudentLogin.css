@@ -1,0 +1,71 @@
+html {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  min-width: 100%;
+  min-height: 100%;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  /*  padding: 0;
+    margin: 0;*/
+  background: rgb(143,231,234); /* Old browsers */
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(143,231,234,1) 40%, rgba(86,146,163,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(40%,rgba(143,231,234,1)), color-stop(100%,rgba(86,146,163,1))); /* Chrome,Safari4+ */
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(143,231,234,1) 40%,rgba(86,146,163,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-radial-gradient(center, ellipse cover,  rgba(143,231,234,1) 40%,rgba(86,146,163,1) 100%); /* Opera 12+ */
+  background: -ms-radial-gradient(center, ellipse cover,  rgba(143,231,234,1) 40%,rgba(86,146,163,1) 100%); /* IE10+ */
+  background: radial-gradient(ellipse at center,  rgba(143,231,234,1) 40%,rgba(86,146,163,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#8fe7ea', endColorstr='#5692a3',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+}
+
+.container-fluid{
+  height:100%;
+  display:table;
+  width: 100%;
+  padding: 0;
+}
+#adventure-view{
+  z-index:-1;
+  position: absolute;
+  left:50%;
+  top:10px;
+  margin-left:-340px;
+  /*margin-top:-310px;*/ 
+  width:680px;
+  height:620px;
+  border-radius: 4px;
+  -webkit-box-shadow: -3px 0px 8px 0px rgba(50, 50, 50, 0.75);
+  -moz-box-shadow:    -3px 0px 8px 0px rgba(50, 50, 50, 0.75);
+  box-shadow:         -3px 0px 8px 0px rgba(50, 50, 50, 0.75);
+  /*    background: -moz-linear-gradient(top,  rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.9) 100%);  FF3.6+ 
+      background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.9)), color-stop(100%,rgba(0,0,0,0.65)));  Chrome,Safari4+ 
+      background: -webkit-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.9) 100%);  Chrome10+,Safari5.1+ 
+      background: -o-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.9) 100%);  Opera 11.10+ 
+      background: -ms-linear-gradient(top,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.9) 100%);  IE10+ 
+      background: linear-gradient(to bottom,  rgba(0,0,0,0.8) 0%,rgba(0,0,0,0.9) 100%);  W3C 
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#a6000000',GradientType=0 );  IE6-9 */
+}
+
+.alpha {
+  /* Fallback for web browsers that don't support RGBa */
+  background-color: rgb(256, 256, 256);
+  background-color: rgba(256,256, 256, 0.9);
+}
+
+.row-fluid {height: 100%; display:table-cell; vertical-align: middle;}
+
+.centering {
+  float:none;
+  margin:0 auto;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+.input-group {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}

@@ -1,0 +1,143 @@
+doctype html
+head
+  title Hit.Camp: !{classroom.name}
+
+  meta(charset='UTF-8')
+  meta(http-equiv='x-ua-compatible', content='IE=edge')
+  meta(name='viewport', content='initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no')
+
+  meta(name='mobile-web-app-capable', content='yes')
+  meta(name='apple-mobile-web-app-capable', content='yes')
+  meta(name='apple-mobile-web-app-status-bar-style', content='black')
+  link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css')
+  link(rel='stylesheet', href='//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
+  link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/messenger/1.4.0/css/messenger.css')
+  link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/messenger/1.4.0/css/messenger-theme-future.css')
+  link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.0/animate.min.css')
+  if settings.env == "development"
+    //-<!-- build:css public/webappJoin/css/join_build.min.css -->
+    link(rel='stylesheet', type='text/css', href='/tools/snap/snap.css')
+    link(rel='stylesheet', type='text/css', href='/tools/snap/snapmenu.css')
+    link(rel='stylesheet', type='text/css', href='/tools/libs/odometer/css/odometer-theme-default.css')
+    link(rel='stylesheet', type='text/css', href='/webappJoin/css/engage_style.css')
+    link(rel='stylesheet', type='text/css', href='/webappJoin/css/webappJoin_style.css')
+    //-<!-- endbuild -->
+  if settings.env == "production"
+    link(rel='stylesheet', type='text/css', href='/webappJoin/css/join_build.min.css')
+
+  //script(src='//cdn.socket.io/socket.io-1.0.6.js', type='text/javascript')  
+  script(src='//cdn.socket.io/socket.io-1.1.0.js', type='text/javascript')
+
+
+  script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js', type='text/javascript')
+  script(type='text/javascript') var jq = jQuery.noConflict();
+  script(src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js', type='text/javascript')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/messenger/1.4.0/js/messenger.min.js', type='text/javascript')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/messenger/1.4.0/js/messenger-theme-future.js', type='text/javascript')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.2.0/bootbox.min.js')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.0/fastclick.min.js', type='text/javascript')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/fabric.js/1.4.8/fabric.min.js')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/ifvisible/1.0.1/ifvisible.min.js')
+  script(src='/tools/pinch/pz.js')
+  
+  if settings.env == "development"
+    - console.log("##Development-Join");
+    //-<!-- build:js public/webappJoin/js/libs/build/join.min.js -->
+    script(src='/tools/libs/list/list.min.js')
+    script(src='/tools/libs/odometer/js/odometer.min.js')
+
+    script(src='/tools/libs/misc/jsuri-1.1.1.min.js', type='text/javascript')
+    script(src='/tools/libs/misc/preload.js', type='text/javascript')
+
+    //script(src='/tools/libs/misc/preloadFrame.js', type='text/javascript')
+
+    script(src='/views/chat/js/chat.js', type='text/javascript')
+    script(src='/views/chat/js/chat_ui.js', type='text/javascript')
+
+    script(src='/plugins/plugin/js/pluginHandler.js', type='text/javascript')
+    script(src='/plugins/grouper/js/grouperStudent.js', type='text/javascript')
+    script(src='/plugins/score/js/score.js', type='text/javascript')
+    //-<!-- endbuild -->
+    script(data-main='/webappJoin/js/require_main', src='/webappJoin/js/libs/require/require.js')
+    
+  if settings.env == "production"
+    - console.log("##Production-Join");
+    script(src='/webappJoin/js/libs/build/join.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js')
+    script(src='/webappJoin/js/require_main.built.js')
+
+  script(src='/plugins/annotate/js/annotate.js', type='text/javascript')
+  script(src='/tools/misc/ps.js', type='text/javascript')
+    
+
+#header-region
+
+.snap-drawers
+  .snap-drawer.snap-drawer-left#drawer-left
+    div
+      //h4 Hit.Camp/!{classroom.path}
+      div
+        <a href="/!{classroom.path}" target="_top" class="navbar-brand" style="color:white"><img src="/media/logo-symbol-64x64.png" class="navbar-logo"><span class="navbar-brand-label"> !{classroom.path}</span></a>
+        //<a class="navbar-brand navbar-fullscreen js-fullscreen" title="fullscreen"><i class="fa fa-arrows-alt btn-side"></i></a>    
+        h1 &nbsp
+      ul        
+        li
+          a#menuChangeName(href='#')
+            div.navbar-icon-area
+              div.icon.navbar-switch(title="")
+                i.fa.fa-user.btn-side
+            div.navbar-desc-area#menuName Student
+                       
+        li
+          a#menuFullScreen(href='#',onclick="switchFullScreen();")
+            div.navbar-icon-area
+              div.icon.navbar-switch(title="")
+                i.fa.fa-arrows-alt.btn-side
+            div.navbar-desc-area Full Screen
+        //li
+        //  a#teacher(href='/'+classroom.path+'/teacher') Login as Teacher
+        li
+          a#logout(href='/'+classroom.path+'/logout' target='_top') 
+            div.navbar-icon-area
+              div.icon.navbar-switch.js-switch(title="")
+                i.fa.fa-sign-out.btn-side  
+            div.navbar-desc-area Log Out Student
+
+  .snap-drawer.snap-drawer-right#drawer-right
+    div
+      #divList
+        input#search.search(style='color:black; margin-left:20px;')
+        h4#menuGroupNumber Group 
+        #regionGroupList
+          ul.list
+            li
+              a.name(href='#') 
+
+
+#content.snap-content
+  #toolbar(data-snap-ignore="true")
+    a#open-left(href='#')
+      i.fa.fa-bars.fa-2x
+      div
+        h1 !{classroom.name}
+        // : !{classroom.PIN}
+    div.odometer#odometer &nbsp;
+    div.pointsAdded#pointsAdded 
+    a.open-right#open-right(href='#')
+      i.fa.fa-group(style='font-size:25px')
+      div
+        h1#nameHeader 
+  #content-afterheader
+    #content-region      
+      #main-region
+      #floating-region
+
+#dialog-region
+
+script(src='../../tools/snap/snap.js', type='text/javascript')
+script(type='text/javascript') var snapper = new Snap({element: document.getElementById('content'), dragger: document.getElementById('toolbar'), maxPosition: 220, minPosition: -220});
+
+script(type='text/template', id='data-results') !{data.results}
+script(type='text/template', id='data-session') !{sessionData}
+

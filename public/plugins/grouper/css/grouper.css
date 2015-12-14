@@ -1,0 +1,41 @@
+
+
+div.foo {
+    position: relative;
+    width: 500px;
+    height: 100px;
+/*    background: black;*/
+}
+
+div.foo > div {
+    width: calc(100% / 4);
+    height: 100%;
+    background: lightgray;
+    float: left;
+/*    border-color: #000000;
+    border: 0px solid;*/
+}
+
+div.foo > div:nth-child(odd) {
+    background: lightblue;
+}
+
+div.studentDIV {
+    position: relative;
+    width: 500px;
+    height: 100px;
+/*    background: black;*/
+}
+
+div.studentDIV > div {
+    width: calc(100% / 4);
+    height: 100%;
+    background: lightgray;
+    float: left;
+/*    border-color: #000000;
+    border: 0px solid;*/
+}
+
+div.studentDIV > div:nth-child(odd) {
+    background: lightblue;
+}

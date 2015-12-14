@@ -1,0 +1,52 @@
+.app-area{
+  padding-top: 5px;
+}
+
+.btn-group-students{
+  margin-top: 5px;
+}
+
+.marking {
+  display: inline-block;
+  text-align: center;
+}
+.grading-area{
+  text-align: center;
+}
+
+.answer-correct {
+  background-color: #ccffcc;
+}
+.answer-wrong {  
+  background-color: lightpink;
+}
+
+h1 {
+  text-align: center
+}
+
+.color-bombed{
+  border: 4px red solid;
+  /*background: rgb(255,48,25);  Old browsers 
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(255,48,25,1) 0%, rgba(207,4,4,1) 100%);  FF3.6+ 
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(255,48,25,1)), color-stop(100%,rgba(207,4,4,1)));  Chrome,Safari4+ 
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(255,48,25,1) 0%,rgba(207,4,4,1) 100%);  Chrome10+,Safari5.1+ 
+  background: -o-radial-gradient(center, ellipse cover,  rgba(255,48,25,1) 0%,rgba(207,4,4,1) 100%);  Opera 12+ 
+  background: -ms-radial-gradient(center, ellipse cover,  rgba(255,48,25,1) 0%,rgba(207,4,4,1) 100%);  IE10+ 
+  background: radial-gradient(ellipse at center,  rgba(255,48,25,1) 0%,rgba(207,4,4,1) 100%);  W3C 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff3019', endColorstr='#cf0404',GradientType=1 );  IE6-9 fallback on horizontal gradient */
+
+}
+
+.color-bombing{
+  border: 4px yellow solid;
+  /*background: rgb(244,152,4);  Old browsers 
+  background: -moz-radial-gradient(center, ellipse cover,  rgba(244,152,4,1) 0%, rgba(242,214,4,1) 100%);  FF3.6+ 
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%,rgba(244,152,4,1)), color-stop(100%,rgba(242,214,4,1)));  Chrome,Safari4+ 
+  background: -webkit-radial-gradient(center, ellipse cover,  rgba(244,152,4,1) 0%,rgba(242,214,4,1) 100%);  Chrome10+,Safari5.1+ 
+  background: -o-radial-gradient(center, ellipse cover,  rgba(244,152,4,1) 0%,rgba(242,214,4,1) 100%);  Opera 12+ 
+  background: -ms-radial-gradient(center, ellipse cover,  rgba(244,152,4,1) 0%,rgba(242,214,4,1) 100%);  IE10+ 
+  background: radial-gradient(ellipse at center,  rgba(244,152,4,1) 0%,rgba(242,214,4,1) 100%);  W3C 
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f49804', endColorstr='#f2d604',GradientType=1 );  IE6-9 fallback on horizontal gradient */
+
+}

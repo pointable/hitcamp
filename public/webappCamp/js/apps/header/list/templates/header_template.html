@@ -1,0 +1,32 @@
+<div class="container-fluid ">
+
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  <div class="collapse navbar-collapse" id="engage-navbar">
+    <ul class="nav navbar-nav">
+      <li><a href="#" class="js-nav-activities js-guide-am-map">Adventure Map</a></li>
+      <li><a href="#" class="js-nav-list step1 js-guide-am-wordlist">Word Lists</a></li>      
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right js-guide-assign" >
+      <li class="dropdown keep-open">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Classrooms Assigned to this Adventure<b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li>      
+            <ul class="list-group checked-list-box" style="width:250px;">              
+              <% _.each(classrooms, function(classroom) { %> 
+              <li class="list-group-item" data-checked='<%= (lesson._id === classroom.lesson)? "true":"false" %>' 
+                  id="<%= classroom._id %>"><%= classroom.name %>
+                <a class="btn btn-sm btn-success pull-right edit" style="margin-top:-5px;position:absolute;right:5px" 
+                   value='<%- classroom._id %>' href='/<%- classroom.path %>' onclick="event.stopPropagation();">
+                  Launch
+                </a>
+              </li>
+              <% }); %> 
+            </ul>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div><!-- /.navbar-collapse -->
+</div><!-- /.container-fluid -->
+

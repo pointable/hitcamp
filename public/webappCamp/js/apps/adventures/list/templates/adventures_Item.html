@@ -1,0 +1,42 @@
+<div>
+  <div class="adventure-area " >
+
+    <div class="adventure-map-holder adventure-blue-glow js-activate "  
+           <% if ( isFirst === true ){ %>
+           data-intro="<b>Adventure</b><br>Prepare a lesson by creating an Adventure with your existing teaching resources" data-position="bottom"
+      <% } %>
+      >
+      <img class="adventure-map center-block" src="<%= backgroundThumbnailURL %>"  height="183" width="200" >
+      <!--    <div class="shadow1"></div>
+          <div class="shadow2"></div>
+          <div class="shadow3"></div>
+          <div class="shadow4"></div>-->
+    </div>
+    <div class="adventure-name text-center">
+      <span class="camp-adventure-font-black adventure-item-title"><%= lessonName %>
+        <% if ( isLocked === true ) { %> 
+        <i class="fa fa-lock"></i>
+        <% } %>
+      </span>
+    </div>  
+  </div>
+  <div class="text-center">
+    <div class="btn-group adventure-actions">
+      <% if ( isLocked !== true ) { %>    
+      <a href="<%= path %>" class="btn btn-default js-edit"> Edit Adventure</a>
+      <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+        <span class="caret"></span>
+        <span class="sr-only">Toggle Dropdown</span>
+      </button>
+
+      <ul class="dropdown-menu " role="menu">
+        <li><a href="#" class="js-share"><i class="fa fa-share-alt "></i> Share...</a></li>
+        <li><a href="#" class="js-duplicate"><i class="fa fa-copy "></i> Duplicate</a></li>
+        <li><a href="#" class="js-delete"><i class="fa fa-trash-o "></i> Delete</a></li>       
+      </ul>
+      <% } else { %>
+      <button type="button" class="btn btn-default js-duplicate"><i class="fa fa-copy "></i> Duplicate</button>
+      <% } %>
+    </div>
+  </div>
+</div>

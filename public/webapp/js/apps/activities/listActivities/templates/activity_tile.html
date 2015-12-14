@@ -1,0 +1,44 @@
+<% if (tileType === "linkhor") { %>
+<div class="activity-direction">
+  <div class="activity-coordinate" data-x="<%= x  %>" data-y="<%= y %>" ></div>
+  <!--<span><i class="fa fa-minus fa-3x"></i></span>-->
+  <% if ( a !== true ) { %>
+  <div class="horizontal-line js-toggle-tile tile-non-active" 
+       <% if ( x===3 && y===2 ) { %>
+       data-intro="Click to activate paths between Activities" data-position="bottom"
+       <% } %>
+       />
+       <% } else { %>
+       <div class="horizontal-line js-toggle-tile tile-active" 
+       <% if ( x===3 && y===2 ) { %>
+       data-intro='Click to activate paths between Activities' data-position="bottom"
+       <% } %>
+       />
+       <% } %>
+  </div>
+  <% } else if (tileType === "linkver") {  %>
+
+  <div class="activity-direction ">
+
+    <div class="activity-coordinate" data-x="<%= x  %>" data-y="<%= y %>" >
+      <!--    <span class="vertical-link"> | </span>-->
+    </div>
+    <% if ( a !== true ) { %>
+    <div class="vertical-line js-toggle-tile tile-non-active" />
+    <% } else { %>
+    <div class="vertical-line js-toggle-tile tile-active" />
+    <% } %>
+  </div>
+  <% } else if (tileType === "dropzone") { %>
+  <div class="activity-dropzone dropzone">
+    <div class="activity-coordinate" data-x="<%= x  %>" data-y="<%= y %>" 
+         <% if ( x===4 && y===2 ) { %>
+         data-intro='<b>Activity</b><br> -Slides with questions <br> -Word List apps <br>  <br>Click to edit <br> Drag to reposition <br><div style="position:absolute;margin-left: -145px;margin-top: -30px;"><div class="checkpoint checkpoint-media"></div></div>' 
+      data-position="right"
+      <% } %>
+      >
+      <!--    <span class="vertical-link"> | </span>-->
+    </div>
+
+  </div>
+  <% } %>

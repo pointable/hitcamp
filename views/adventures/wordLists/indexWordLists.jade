@@ -1,0 +1,51 @@
+extends ../../../layouts/account
+
+block head
+  title !{lesson.lessonName}
+
+block neck
+  link(rel='stylesheet', href='/views/adventures/wordLists/index.min.css?#{cacheBreaker}')
+
+block feet
+  script(src='/views/adventures/wordLists/index.min.js?#{cacheBreaker}')
+
+block body
+  div.row
+    div.col-xs-12
+      div#header
+      div#results-table
+
+  script(type='text/template', id='tmpl-header')
+    div.page-header
+      form.form-inline.pull-right
+        div.input-group
+          input.form-control(name='title', type='text', placeholder='enter a word list name', value!='')
+          button.btn.btn-primary.btn-add(type='button') Add New
+      h1 !{lesson.lessonName}
+
+  script(type='text/template', id='tmpl-results-table')
+    table.table.table-striped
+      thead
+        tr
+          th Word List Name
+          th id
+          th Words
+          th 
+      tbody#results-rows
+
+  script(type='text/template', id='tmpl-results-row')
+    td <%= title %>
+    td <%= _id %>
+    td <%= words %>
+    td
+      input.btn.btn-default.btn-sm.btn-details(type='button', value='Edit')
+      input.btn.btn-default.btn-sm.btn-danger(type='button', value='Delete')
+
+  script(type='text/template', id='tmpl-results-empty-row')
+    tr
+      td(colspan='5') no word list found
+
+
+  script(type='text/template', id='data-results') !{data.results}
+
+// {"data":[{"_id":"52fb19c348943641ee1f6ee3","email":"admin@smoothboard.net","isActive":"yes","username":"root"},{"_id":"52fb1f454b8f85000047ed1d","email":"jingoh@gmail.com","isActive":"yes","username":"testuser"},{"username":"test2","_id":"52fc8855cd78c6000088928b"}],"pages":{"current":1,"prev":0,"hasPrev":false,"next":0,"hasNext":false,"total":1},"items":{"begin":1,"end":3,"total":3},"filters":{"username":"","limit":20,"page":1,"sort":"_id"}}

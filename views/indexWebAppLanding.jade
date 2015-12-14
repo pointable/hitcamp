@@ -1,0 +1,215 @@
+doctype
+html
+  head
+    title Hit.Camp - Second Screen for Classrooms
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+    meta(property='og:title', content='Hit.Camp - Classroom Engagement At Your Fingertips')
+    meta(property='og:description', content='Engage your students today. Create interactive presentations. Get real-time responses. Let students play and learn with multiplayer apps.')
+    meta(property='og:image', content='http://hit.camp/webappLanding/images/devices.png')
+    link(rel='stylesheet', type='text/css', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css')
+    link(rel='stylesheet', type='text/css', href='//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css')
+    link(href='//fonts.googleapis.com/css?family=Open+Sans:400,300', rel='stylesheet', type='text/css')
+    link(rel='stylesheet', type='text/css', href='/webappLanding/css/webappLanding_base.css')
+  body
+    nav.navbar.navbar-default.navbar-fixed-top.header-wrapper(role='navigation')
+      .container-fluid
+        .navbar-header
+          button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='#header-links')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+              span
+                span.icon-bar
+          a.navbar-brand(href='/') Brand
+        #header-links.collapse.navbar-collapse
+          ul.nav.navbar-nav.navbar-right
+            li
+              a(href='/login') Log In
+            li
+              a.btn-start.js-start(href='#') Get Started
+    .container-fluid
+      #intro.row
+        .intro-img-hero-bg.js-intro
+        .headline
+          .logo
+          h1.tagline second screen for classrooms
+      .call-out.row.text-center
+        h2 For teachers with BYOD or 1:1 classrooms 
+        .col-md-4.col-sm-4
+          h3 Interactive Presentation
+          #circle-1.icon-circle
+            span.quick
+          p
+            | Present and engage your students.
+            br
+        .col-md-4.col-sm-4
+          h3 Real-time Responses
+          #circle-2.icon-circle
+          p Grade students' responses instantly.
+        .col-md-4.col-sm-4
+          h3 Multiplayer Apps
+          #circle-3.icon-circle
+          p Let your students play and learn.
+      #responses.slide.row
+        .col-md-6.col-sm-6.col-xs-12
+          .ipad-responses.story-image
+        .col-md-6.col-sm-6.col-xs-12.story
+          article
+            h2 Get Real-Time Responses From Your Students
+            p Assess your students' understanding in real-time for early intervention.
+            .response-types
+              .response
+                .icon-square.icon-green
+                  i.fa.fa-2x.fa-pencil.icon
+                h3 Open Response
+                p Flexible response with annotation
+              .response
+                .icon-square.icon-green
+                  i.fa.fa-2x.fa-check-circle-o.icon
+                h3 Check In
+                p Let students check in their level of understanding
+            .response-types
+              .response
+                .icon-square.icon-green
+                  i.fa.fa-2x.fa-bar-chart-o.icon
+                h3 Quick Poll
+                p Instant polling with Multiple Choice, Yes/No, True/False, Like/Dislike 
+      #adventure-map.slide.row
+        .col-md-6.col-sm-6.col-xs-12
+          .adventure-map.story-image
+        .col-md-6.col-sm-6.col-xs-12
+          article
+            h2 Transform your Presentation Into An Adventure
+            p
+              | Insert PDF documents, YouTube videos, PowerPoint slides and images as interactive elements on the Adventure Map.
+            p Add questions and answers to the elements.
+            p Make your lesson even more exciting with interactive apps on your Adventure Map.
+            p Customize the background for the Adventure Map.
+        //
+                  <div class="shadow"></div>
+      #engage-multiplayer.slide.row
+        .col-md-6.col-sm-6.col-xs-12
+          .ipad-engage-multiplayer.story-image
+        .col-md-6.col-sm-6.col-xs-12.story
+          article
+            h2 Engage Your Students With Multiplayer Apps
+            p
+              | Excite students with competitive real-time games to learn and have fun at the same time.
+            .response-types
+              .response
+                .icon-square.icon-orange
+                  i.fa.fa-2x.fa-circle-o.icon
+                h3 Word Wheel
+                p Spin and guess the words.
+              .response
+                .icon-square.icon-orange
+                  i.fa.fa-2x.fa-columns.icon
+                h3 Sort Me
+                p Sort it before others do.
+            .response-types
+              .response
+                .icon-square.icon-orange
+                  i.fa.fa-2x.fa-bolt.icon
+                h3 Word Attack
+                p Choose the correct category for the word.
+              .response
+                .icon-square.icon-orange
+                  i.fa.fa-2x.fa-search.icon
+                h3 Word Search
+                p Find the words hidden in the puzzle.
+      //
+        <div id="classroom-apps" class="slide row">        
+                                  <div class="col-md-6 col-sm-6 col-xs-12 ">
+                                    <div class="ipad-buzzer story-image"></div>
+                                  </div>
+                                  <div class="col-md-6 col-sm-6 col-xs-12 story">
+                                    <article>
+                                      <h2>All Your Classroom Tools in One Spot</h2>
+                                      <p>Forget about downloading miscellaneous apps. All your classroom needs are readily available.</p>
+                                      <div class="response-types">
+                                        <div class="response"> 
+                                          <div class='icon-square icon-red'><i class='fa fa-2x fa-random icon'></i></div>
+                                          <h3>Randomizer</h3>
+                                          <p>Helps you to pick a student randomly.</p>                            
+                                        </div>
+                                        <div class="response"> 
+                                          <div class='icon-square icon-red'><i class='fa fa-2x fa-dot-circle-o icon'></i></div>
+                                          <h3>Buzzer</h3>
+                                          <p>Get student excited in answering questions with a buzzer.</p>                            
+                                        </div>                          
+                                      </div>
+                                      <div class="response-types">
+                                        <div class="response">                  
+                                          <h3>More tools?</h3>
+                                          <p><a href='/contact'>Contact us</a> to let us know the tools you need.</p>                            
+                                        </div>                         
+                                      </div>
+                                    </article>
+                                  </div>
+                                </div>
+      #supported-platform.slide.row.text-center
+        .browsers.browser-image
+        h2 No installation required
+        h2 Works with any device with modern web browsers
+        p Laptop, Chromebook, iPad, Android, and more.
+    #call-to-action
+      a(name='sign-up')
+      .logo
+      h2 Start engaging your students today.
+      //
+        <a class='btn btn-start' href='/contact'>Get Started</a>
+      .beta-form-wrapper
+        form#new_user.form-inline.signup(accept-charset='UTF-8', method='get' action='/signup/google/')
+          input(name='message', type='hidden', value='Sign Up Request for Hit.Camp')
+          //
+            input#user_name.focus(name='name', placeholder='Name', size='30', type='text', value='')
+            input#user_email(name='email', placeholder='Email Address', size='30', type='text', value='')
+          input(name='commit', type='submit', value='Free Sign Up')
+          p.hint with a personal Google account 
+          //
+            p.hint (school account not compatible for beta)
+          .clearfix
+          // 
+            .clearfix
+          p.hint
+      //
+        .beta-form-wrapper
+          form#new_user.form-inline.signup(accept-charset='UTF-8', method='post')
+            input(name='message', type='hidden', value='Sign Up Request for Hit.Camp')
+            input#user_name.focus(name='name', placeholder='Name', size='30', type='text', value='')
+            input#user_email(name='email', placeholder='Email Address', size='30', type='text', value='')
+            input(name='commit', type='submit', value='Invite Me')
+            .clearfix
+            .clearfix
+            p.hint
+      p Hit.Camp is currently in beta. Be the first to experience Hit.Camp.
+      a.btn.facebook.btn-share.js-fb(href='http://www.facebook.com/sharer.php?s=100&p[url]=\'http://hit.camp\'')
+        i.fa.fa-facebook.fa-2x
+      a.btn.twitter.btn-share.js-tw(href='http://twitter.com/share?url=http://hit.camp&text=\'Classroom engagement at your fingertips. Check it out now.\'')
+        i.fa.fa-twitter.fa-2x
+      //
+                          <a class='btn pinterest btn-share js-pt'>
+                                  <i class='fa fa-pinterest fa-2x'></i>
+                                </a>
+      .btn-share.pinterest
+        a(href='//gb.pinterest.com/pin/create/button/?url=http%3A%2F%2Fhit.camp&media=http%3A%2F%2Fhtengage.ddns.net%3A3001%2FwebappLanding%2Fimages%2Fdevices.png&description=Classroom%20engagement%20at%20your%20fingertips', data-pin-do='buttonPin', data-pin-shape='round', data-pin-height='32')
+          img(src='//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png')
+      .btn-share.google-plus-wrapper
+        a.google-plus.js-gp(href='https://plus.google.com/share?url=\'http://hit.camp\'')
+          img(src='https://www.gstatic.com/images/icons/gplus-32.png', alt='Share on Google+')
+    .footer
+      .container-fluid
+        span.copyright.pull-right © 2014 Pointable Lab
+        ul.links
+          li
+            a(href='/') Home
+          li
+            a(href='https://community.hit.camp') Community
+          li
+            a(href='/contact/') Contact
+        .clearfix
+    script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js')
+    script(type='text/javascript', async='async', src='//assets.pinterest.com/js/pinit.js')
+    script(src='/webappLanding/js/main.js')

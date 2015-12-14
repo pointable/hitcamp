@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <title>File Picker</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/async/0.9.0/async.js"></script>
+    <script type="text/javascript" src="filepicker.js"></script>
+    <style type="text/css">
+      body {
+        /*background:none transparent;*/
+        background: rgba(255, 255, 255, .5);
+      }
+
+      .notification-area{
+        display:block;
+        position:absolute;
+        left:50%;
+        top:50%;
+        margin-left: -200px;
+        margin-top: -150px;
+        width:400px;
+        height:300px;
+        border:2px solid black;
+        background-color: rgba(255,255,255,1.0);
+      }  
+
+    </style>
+  </head>
+  <body>
+    <div id="result"></div>
+
+    <div class="notification-area">
+
+      <div  style="position:absolute; left:0px; top:40%; width:100%;">
+        <div id="progressDescription" style="text-align:center"></div>      
+      </div>
+
+      <!--<img src='./spinner.gif' id='imgSpinner' style="position:absolute; left:50%; top:50%; margin-left: -8px;visibility:hidden" />-->
+      <div id='imgSpinner' style="position:absolute; left:50%; top:50%; margin-left: -8px;visibility:hidden" > <i class="fa fa-spinner fa-spin"></i></div>
+     
+      <!--<input id="authorizeButton" type="button" style="display: none;position:absolute; left:50%;" value="Authorize" />--> 
+      <div id="authorizeButton" style="display: none;position:absolute; left:50%;top:20%; margin-left:-60px;"> 
+        <a href="#" class="btn btn-info btn-large" style="font-size:20px;"><span class="glyphicon glyphicon-check"></span> Authorize</a>
+      </div>
+
+    </div>
+    <script src='https://www.google.com/jsapi?key=Lxg0jFZ1SZ6TJgTgAEE3gWuR' type='text/javascript'></script>
+    <script src="https://apis.google.com/js/client.js?onload=onApiLoad"></script>
+  </body>
+</html>

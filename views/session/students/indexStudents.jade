@@ -1,0 +1,79 @@
+extends ../../../layouts/account
+
+block head
+  title Manage Students
+
+block neck
+  link(rel='stylesheet', href='/views/session/students/indexStudents.min.css?#{cacheBreaker}')
+
+block feet
+  script(src='/views/session/students/indexStudents.min.js?#{cacheBreaker}')
+
+block body
+  div.row
+    div.col-xs-12
+      div#header
+      div#filters
+      div#results-table
+      //div#results-paging
+
+  script(type='text/template', id='tmpl-header')
+    div.page-header
+      form.form-inline.pull-right
+        div.input-group
+          input.form-control#add(name='username', type='text', placeholder='enter a new Student name', style='width: "250px";', value!='<%= username %>')
+          button.btn.btn-primary.btn-add(type='button') Add Student
+      h1 
+        a(href='/classrooms/') !{data.name}
+        |: Students
+
+  script(type='text/template', id='tmpl-results-table')
+    table.table.table-striped
+      thead
+        tr
+          th Name
+          th Display Name
+          th.stretch Email
+          th
+         // th Active
+          //th id
+      tbody#results-rows
+
+  script(type='text/template', id='tmpl-results-row')
+    td <%= name %>
+    td <%= username %>
+    td <%= email %>
+    //td <%= isActive %>
+    td
+      //input.btn.btn-default.btn-sm.btn-details(type='button', value='Edit')
+      .btn-group
+        a.btn.btn-primary.edit(href='#')
+            i.fa.fa-edit.fa-fw
+            | &nbsp; Edit
+          a.btn.btn-primary.dropdown-toggle(data-toggle='dropdown', href='#')
+            span.fa.fa-caret-down
+          ul.dropdown-menu
+            li
+              a.edit(href='#')
+                i.fa.fa-edit.fa-fw
+                | &nbsp; Edit Student
+            //li
+            //  a.delete(href='#')
+            //    i.fa.fa-trash-o.fa-fw
+            //    | &nbsp; Delete Student
+
+  script(type='text/template', id='tmpl-results-empty-row')
+    tr
+      td(colspan='5') no students found
+
+  script(type='text/template', id='tmpl-results-paging')
+    div.well
+      div.btn-group.pull-left
+        button.btn.btn-default(disabled=true) Page <%= pages.current %> of <%= pages.total %>
+        button.btn.btn-default(disabled=true) Rows <%= items.begin %> - <%= items.end %> of <%= items.total %>
+      div.btn-group.pull-right
+        button.btn.btn-default.btn-page.btn-prev(data-page!='<%= pages.prev %>') Prev
+        button.btn.btn-default.btn-page.btn-next(data-page!='<%= pages.next %>')  Next
+      div.clearfix
+
+  script(type='text/template', id='data-results') !{data.results}

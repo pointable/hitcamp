@@ -1,0 +1,60 @@
+
+
+<div class="classroom-area js-activate"
+     <% if ( isFirst === true ){ %>
+     data-intro="<b>Classroom</b><br> Create and share the Classroom address to your students" data-position="top"
+  <% } %>
+  >
+
+  <div class="classroom-title-wrapper">
+    <div class="classroom-name camp-adventure-font text-center">
+      <img class="classroom-icon" height="183" width="200" src="../webappCamp/images/globetrotter_1234.png">
+      <span ><%= name %></span>
+    </div>
+    <div class="classroom-address text-center" title="Classroom URL">
+      <div class="address-link"><%= (window.location.hostname.indexOf('hit.camp')!=-1)?window.location.hostname:'hit.camp' %>/<%= path %></div><br>
+    </div>
+    <div class="text-center action-panel">
+      <div class="btn-group classroom-actions">
+        <a href="../<%= path %>" class="btn btn-success js-launch" title="Launch Classroom">Launch Classroom</a>        
+        <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+          <span class="caret"></span>
+          <span class="sr-only">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu " role="menu">
+          <li><a href="/<%= path %>/teststudents/1_2"  class="js-preview"><i class="fa fa-search"></i> Preview with Test Student</a></li>  
+          <li><a href="/classrooms/<%= path %>/reports" class="js-reports"><i class="fa fa-bar-chart-o"></i> View Reports</a></li>
+          <li><a href="/classrooms/<%= path %>/students" class="js-students"><i class="fa fa-users "></i> Manage Students</a></li>
+          <li><a href="/classrooms/<%= path %>/configure" class="js-edit"><i class="fa fa-cog"></i> Configure Classroom</a></li>  
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <% if (  lesson ){ %>
+  <div class="classroom-map-wrapper">
+  <% } else { %>
+  <div class="classroom-map-wrapper" style="visibility:hidden;">
+  <% } %>
+      <!--<div class="text-center current-adventure"><span class="camp-adventure-font">Assigned Adventure:</span></div>-->   
+
+    <div class="classroom-map-holder adventure-blue-glow " title="Current Adventure" >
+      <img class="classroom-thumbtack" src="../webappCamp/images/thumbtack.png"  height="20" width="20">
+      <img class="classroom-map" src="<%= backgroundThumbnailURL %>"  height="91" width="100">
+      <div class="shadow1"></div>
+      <div class="shadow2"></div>
+      <div class="shadow3"></div>
+      <div class="shadow4"></div>
+    </div>          
+    <div class="text-center current-adventure"
+         <% if ( isFirst === true ){ %>
+         data-intro="Adventure currently assigned" data-position="bottom"
+         <% } %>
+         ><span class="camp-adventure-font"><%= lessonName %></span></div>   
+    </div>
+
+  </div>
+
+
+
+

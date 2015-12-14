@@ -1,0 +1,97 @@
+html, body {
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}  
+#outer-dropzone {
+    height: 140px;
+}
+
+#inner-dropzone1 {
+  float:left;
+}
+#inner-dropzone2 {
+  float:right;
+}
+
+.dropzone {
+  background-color: #ccc;
+  border: dashed 4px #666;
+  border-radius: 4px;
+  margin-top: -30px;
+  margin-right: -30px;
+  margin-left: -30px;
+  /*padding-top: 30px;*/  
+  transition: background-color 0.3s;
+  overflow-y: hidden;
+  
+}
+
+.scroll {  
+  overflow-y: auto;
+  display:inline-block;
+  height: 70%;
+}
+
+.inner-dropzone {
+  display:inline-block;
+  text-align: center;
+  width: -moz-calc(50% + 30px);
+  width: -webkit-calc(50% + 30px);
+  width: -o-calc(50% + 30px);
+  width: calc(50% + 30px);
+  height: 200px;
+}
+
+.drop-target {
+  background-color: #29e;
+}
+
+.drag-drop {
+    display: inline-block;
+    min-width: 80px;
+    height: 50px;
+    padding: 10px 5px;
+    text-align: center;
+
+    background-color: #99e;
+    border: solid 2px white;
+    /*transition: background-color 0.3s;*/
+}
+.drag-drop:hover,.drag-drop:active {
+  background-color: #00B7FF;
+}
+
+.can-drop {
+  background-color: #99e;
+}
+
+
+.drop-wrong {
+  background-color:  red;
+}
+
+.drop-correct {
+  background-color: greenyellow;
+}
+
+.word-answered {
+  display: inline-block;
+  padding: 5px;
+  margin: 2px;
+}
+
+
+
+.correct {
+  background-color: greenyellow;
+}
+
+.tab-content {
+  margin-top: 30px;
+  margin-left: 30px;
+  margin-right: 30px;
+  overflow: visible;
+  height:100%
+}

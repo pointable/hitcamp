@@ -1,0 +1,138 @@
+extends ../../layouts/student
+
+block head
+  title Student Log In
+  meta(charset='UTF-8')
+  meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  script(src='//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js')
+
+block neck
+  link(rel='stylesheet', href='/views/studentLogin/indexStudentLogin.css?#{cacheBreaker}')
+
+block feet
+  script(type='text/javascript', src='/views/studentLogin/indexStudentLogin.min.js?#{cacheBreaker}')
+
+block body
+  // <div id="adventure-view" class="row" style="background-image:url('<%= backgroundImageURL %>')"></div>
+  #adventure-view(style='background-image:url(' + backgroundImageURL + ')')
+
+  div(style='width: 100%; height: 100%;')
+    h1(style='text-align:center') !{name}
+    .tab-content 
+      #tabPane.tab-pane.active
+        .container(style='padding: 0px;')
+          if(!isTeacher)
+            #loginbox.mainbox.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2(style='margin-top: 0px;')
+              .panel.panel-info.alpha
+                .panel-heading
+                  .panel-title Student Log In
+                  div(style='float: right; font-size: 100%; position: relative; top: -10px;')
+                    a(href='#', onclick='$(\'#loginbox\').hide();$(\'#signupbox\').show()')
+                      | Student Sign Up
+                .panel-body
+                  div#login
+                  a.pull-right(href=classroomPath+ '/teacher') Teachers Login Here
+            #signupbox.mainbox.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2(style='display: none; margin-top: 0px;')
+              .panel.panel-info
+                .panel-heading
+                  .panel-title Student Sign Up
+                  div(style='float: right; font-size: 100%; position: relative; top: -10px;')
+                    a#signinlink(href='#', onclick='$(\'#signupbox\').hide();$(\'#loginbox\').show()') Student Log In
+                .panel-body
+                  div#signup
+          else
+            #teacher-login-box.mainbox.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2(style='display: block; margin-top: 0px;')
+              .panel.panel-info
+                .panel-heading
+                  .panel-title Classroom Access
+                .panel-body
+                  div#teacher-login  
+                    form#loginform.form-horizontal(role='form')
+                      .login-footer
+                        .row
+                    .panel-body
+                      .login-footer
+                        .row.center-block
+                            label.center-block.text-center(for='btn-login-guest') You are not the owner of this Classroom (!{name})
+                            a#btn-teacher-homepage.btn.btn-success.btn-login.center-block(href='/') Back to Classrooms & Adventures      
+                      .login-footer(style='border-top: 1px solid #dadada;')
+                        .row.center-block
+                          .center-block
+                            label.center-block.text-center(for='btn-login-guest') Or
+                            a#btn-login-guest.btn.btn-default.btn-guest.center-block(href=classroomPath+ '/guest') Log in to !{name} as a Student              
+
+  script(type='text/template', id='data') !{data}
+
+
+  script(type='text/template', id='tmpl-signup')
+    form#signupform.form-horizontal(role='form')
+      div.alerts
+        |<% _.each(errors, function(err) { %>
+        div.alert.alert-danger.alert-dismissable
+          button.close(type='button', data-dismiss='alert') &times;
+          |<%- err %>
+        |<% }); %>
+      //.form-group(class!='<%- errfor.pin ? "has-error" : "" %>')
+      //  label.col-md-4.control-label(for='PIN') Classroom PIN
+      //  .col-md-8
+      //    input.form-control(type='number', name='pin', min="100", max="99999",placeholder='PIN', value!='<%= pin %>')
+      //    span.help-block <%- errfor.pin %>
+      .form-group(class!='<%- errfor.username ? "has-error" : "" %>')
+        label.col-md-4.control-label(for='username') New Display Name
+        .col-md-8
+          input.form-control(type='text', name='username', placeholder='Display Name', value!='<%= username %>')
+          span.help-block <%- errfor.username %>
+      .form-group(class!='<%- errfor.password ? "has-error" : "" %>')
+        label.col-md-4.control-label(for='password') Password
+        .col-md-8
+          input.form-control(type='password', name='password', placeholder='Password', value!='<%= password %>')
+          span.help-block <%- errfor.password %>
+      .login-footer
+        .row
+          .col-xs-6.col-md-6
+            .left-section
+              .checkbox
+                label
+                  //input#signup-remember(type='checkbox', name='remember', value='1', checked='checked')
+                  //| Remember me
+          .col-xs-6.col-xs-4.col-md-3.pull-right
+            a#btn-signup.btn.btn-info.btn-signup.pull-right(href='#') Sign Up
+
+
+  script(type='text/template', id='tmpl-login')
+    form#loginform.form-horizontal(role='form')
+      div.alerts
+        |<% _.each(errors, function(err) { %>
+        div.alert.alert-danger.alert-dismissable
+          button.close(type='button', data-dismiss='alert') &times;
+          |<%- err %>
+        |<% }); %>
+      .input-group
+        span.input-group-addon
+          i.fa.fa-user.fa-fw
+        input#login-username.form-control(type='text', name='username', placeholder='Display Name', value!='<%= username %>')
+        span.help-block <%- errfor.username %>
+
+      .input-group
+        span.input-group-addon
+          i.fa.fa-lock.fa-fw
+        input#login-password.form-control(type='password', name='password', placeholder='Password', value!='<%= password %>')
+        span.help-block <%- errfor.password %>
+
+      .login-footer
+        .row
+          .col-xs-6.col-md-6
+            .left-section
+              .checkbox
+                label
+                  //input#login-remember(type='checkbox', name='remember', value='1', checked='checked')
+                  //| Remember me
+          .col-xs-6.col-xs-4.col-md-3.pull-right
+            a#btn-login.btn.btn-success.btn-login.pull-right(href='#') Log In 
+    .panel-body
+      .login-footer(style='border-top: 1px solid #dadada;')
+        .row
+        .row.center-block
+          .center-block
+            label.center-block.text-center(for='btn-login-guest') Or
+            a#btn-login-guest.btn.btn-default.btn-guest.center-block(href='#') Log in as Guest Student

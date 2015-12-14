@@ -1,0 +1,29 @@
+<div class="activity-header-bar text-center">
+  
+  <div class="activity-header-wrapper">
+    <span class="activity-title-picker camp-adventure-title"><%= lessonName %></span>
+    <a href="#" class="btn btn-activity js-select"><i class="fa fa-map-marker"></i> Select</a>
+    
+<!--    <% if ( typeof lessonName === null || typeof lessonName === 'undefined' || lessonName === ''){ %>
+    <a href="#" class="btn btn-default btn-sm btn-activity js-new-activity"><i class="fa fa-file"></i>New Activity </a>
+    <% }else { %>  
+    <% if ( isLocked ){ %>
+    &nbsp;<i class="fa fa-lock"></i>
+    <% }else { %>
+    <a href="#" class="btn-activity-edit js-edit"><i class="fa fa-edit"></i></a>
+    <% } %>
+    <% } %> -->
+  </div>
+</div>
+
+<!--<div class="row activity-title">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+    <span> <%= lessonName %> </span>  
+  </div>
+</div>-->
+<p></p>
+
+<div id="adventure-view" class="row" style="background-image:url('<%= backgroundImageURL %>')"></div>
+<% if (window.top !== window.self) { %>
+<div class="test-view-text text-center">Teacher</div>
+<% } %>

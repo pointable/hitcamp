@@ -1,0 +1,30 @@
+<div class="btnActivity" data-toggle="tooltip" data-placement="left" title="Open Activity">
+  <a class="btn-image js-edit js-edit-state <%= colorTag %>" href="#" style='background-image: url("<%= thumbnail %>");'></a>
+</div>
+<div class="js-rename js-rename-state">
+  <div class="btn-overlay grey"></div>
+  <div class="index number">
+    <span class="circle-index index-list-element"><%= index %></span>
+  </div>
+  <div class="btn-overlay-description" data-toggle="tooltip" data-placement="left" title="Rename Activity">    
+    <span  contentEditable=true data-ph="Click to edit title" class="activity-title"><%= activityTitle %></span>    
+  </div>
+  <div class="btn-edit">
+    <a  class="btnNav btnDelete js-delete"></a>
+  </div>
+  
+</div>
+
+<!-- <div class="editActivityLowerContainer ">
+    <div class="editActivityDescription <%= colorTag+'Shade' %>">            
+        <input class="editActivityTitle removeBorder <%= colorTag+'Shade' %>" type="text" name="title" placeholder="<%= activityTitle %>"/>
+    </div>
+    <div class="editActivityCheckbox <%= colorTag +'Shade' %>">
+                    <label>
+                        <input type="checkbox" name="cc" class="toggle" />
+                        <span class="tick centerNavigationElements"></span>                            
+                    </label>             
+        <a  class="btnNav btnDelete js-delete" id="clear-selected" title="delete activities selected"></a>
+    </div>                            
+</div>
+-->

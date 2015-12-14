@@ -1,0 +1,33 @@
+<% if ( a === true ) { %>
+  <% if (tileType === "linkhor") { %>
+  <div class="activity-direction">
+    <div class="activity-coordinate" data-x="<%= x  %>" data-y="<%= y %>" ></div>
+    <!--<span><i class="fa fa-minus fa-3x"></i></span>-->
+    <% if ( a !== true ) { %>
+    <div class="horizontal-line js-toggle-hor tile-non-active" />
+    <% } else { %>
+    <div class="horizontal-line js-toggle-hor" />
+    <% } %>
+  </div>
+  <% } else if (tileType === "linkver") {  %>
+
+  <div class="activity-direction ">
+
+    <div class="activity-coordinate" data-x="<%= x  %>" data-y="<%= y %>" >
+      <!--    <span class="vertical-link"> | </span>-->
+    </div>
+    <% if ( a !== true ) { %>
+    <div class="vertical-line js-toggle-ver tile-non-active" />
+    <% } else { %>
+    <div class="vertical-line js-toggle-ver" />
+    <% } %>
+  </div>
+  <% } else if (tileType === "dropzone") { %>
+  <div class="activity-dropzone dropzone js-new">
+    <div class="activity-coordinate" data-x="<%= x  %>" data-y="<%= y %>" >
+      <!--    <span class="vertical-link"> | </span>-->
+    </div>
+
+  </div>
+  <% } %>
+<% } %>

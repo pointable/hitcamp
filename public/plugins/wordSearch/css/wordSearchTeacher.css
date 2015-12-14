@@ -1,0 +1,23 @@
+.combobox-container{
+  /*    float: none;
+      margin: 0 auto;*/
+  display:inline-block;
+}
+
+.combobox {
+  font-size: 15px;
+}
+
+
+#table_div{
+  width: 100%; 
+  max-width: 500px;
+  height: 500px;
+}
+
+.google-visualization-table-td, .google-visualization-table-th, .google-visualization-table-tr-head{
+  text-align: center !important;
+}
+.google-visualization-table-td-number{
+  text-align: center !important;
+}

@@ -1,0 +1,255 @@
+<div class="row adventure-title">
+  <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center camp-adventure-font-style">
+
+    <span class="lesson-name js-rename-lesson"  data-intro="Rename Adventure" data-position="bottom"> <%= lessonName %> <i class="fa fa-edit"></i></span>           
+  </div>
+  <div class="activity-guide-area">
+    <button type="button" class="btn btn-default navbar-btn js-guide">
+      <i class="fa fa-info-circle "></i> Guide</button>
+  </div>
+</div>
+<p></p>
+
+<div id='adventure-wrapper'>
+  <!--  ng-app="kitchensink" class="ng-scope">-->
+  <div id="adventure-view" class="row" style="background-image:url('<%= (document.backgroundImageURL)?document.backgroundImageURL:backgroundImageURL %>')">
+    <a class="btn btn-add-activity js-new  js-guide-new" data-intro="Add new Activity" data-position="top"><i class="fa fa-plus fa-2x"></i></a>  
+    <div class="edit-background" data-intro="Customize the background with fun graphics!" data-position="top">
+      <a class="btn btn-edit-background js-edit-background" 
+         <% if (!document.filepickerLoaded){ %>
+         disabled="disabled"
+         <% } %>
+         >Edit Background</a>
+      <div id="background-saving" style="display:none;">
+        <i class="fa fa-spinner fa-spin"></i>
+        <span><b>Saving...</b></span>
+      </div>
+      <div id="background-saved" style="display:none;">
+        <span><b> &nbsp; Saved</b></span>
+      </div>
+    </div>
+    <canvas id="canvas" width="680" height="620"></canvas>
+  </div>
+  <!--<script>
+    var kitchensink = {};
+    var canvas = new fabric.Canvas('canvas');
+  </script>-->
+  <!--
+  <script src="/tools/backgroundEditor/backgroundEditor_utils.js"></script>
+  <script src="/tools/backgroundEditor/backgroundEditor.js"></script>
+  <script src="/tools/backgroundEditor/backgroundEditor_controller.js"></script>-->
+
+  <div id="bd-wrapper" ng-controller="CanvasControls" class="ng-scope" style="display:none;">
+    <div style="position:relative;width:680px;height:50px;float:left;left: 50%;margin-left: -340px;top:-60px;" id="canvas-wrapper">
+
+      <div id="canvas-controls">
+        <nav class="navbar navbar-default" role="navigation">
+          <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+              <div class="navbar-brand" href="#">Add </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+              <ul class="nav navbar-nav">
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-image" style="font-size:20px"></span> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu" style="width:400px">
+                    <!--                    <li>&nbsp; Background Color: &nbsp;
+                                          <input type="color" style="width:40px" bind-value-to="canvasBgColor">
+                                          <button class="btn btn-sm" ng-click="canvasTransparent()"> Transparent </button></li>-->
+                    <li> &nbsp; Maps</li>
+                    <button type="button" class="btn btn-thumbnail-large" ng-click="addImageMap(element);
+                          $event.preventDefault()" ng-repeat="element in elementsMap">
+                      <img class="thumbnail-large" ng-src="/media/thumbnails/islands/{{element}}.png">
+                    </button>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-square-o" style="font-size:20px"></span> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu" style="width:220px">
+                    <li>  &nbsp; Shapes</li>
+                    <button type="button" class="btn btn-thumbnail" style="width:80px" ng-click="addRect();
+                          $event.preventDefault()"><span class="fa fa-square" style="font-size:60px"></span> </button>
+                    <button type="button" class="btn btn-thumbnail" style="width:80px" ng-click="addCircle();
+                          $event.preventDefault()"><span class="fa fa-circle" style="font-size:60px"></span> </button>
+                    <button type="button" class="btn btn-thumbnail" style="width:80px" ng-click="addTriangle();
+                          $event.preventDefault()"><span class="" style="font-size:60px">▲</span> </button>
+                    <button type="button" class="btn btn-thumbnail" style="width:80px" ng-click="addLine();
+                          $event.preventDefault()"><span class="" style="font-size:60px">\</span> </button>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-tree" style="font-size:20px"></span> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu" style="width:400px">
+                    <div>
+                      <li>  &nbsp; Nature</li>    
+                      <button type="button" class="btn btn-thumbnail" ng-click="addImageEnvironment(element);
+                            $event.preventDefault()" ng-repeat="element in elementsNature">
+                        <img class="thumbnail" ng-src="/media/thumbnails/environment/{{element}}.png" width="150px"/>
+                      </button>
+                    </div>
+                  </ul>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-home" style="font-size:20px"></span> <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu" style="width:400px">
+                    <li>  &nbsp; Buildings</li>
+                    <button type="button" class="btn btn-thumbnail" ng-click="addImageBuilding(element);
+                          $event.preventDefault()" ng-repeat="element in elementsBuilding">
+                      <img class="thumbnail" ng-src="/media/thumbnails/buildings/{{element}}.png" width="150px"/>
+                    </button>
+                  </ul>
+                </li>
+                <!--                <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-road" style="font-size:20px"></span> <span class="caret"></span></a>
+                                  <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#"></a></li>
+                                  </ul>
+                                </li>-->
+                <li class="dropdown">
+                  <a href="#" ng-click="addText();
+                        $event.preventDefault()">Text &nbsp;<span class="fa fa-text-width"></span></a>
+                  <!--<button class="btn" ng-click="addText()">Add text</button>-->
+                </li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" onclick="activateFilePickerBackgroundEditor()">Image Picker &nbsp;<span class="fa fa-upload"></span></a>
+                </li>
+              </ul>
+              <!--              <ul class="nav navbar-nav pull-right">
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-click="actionUndo()"><span class="fa fa-rotate-left"></span></a>
+                              </li>
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" ng-click="actionRedo()"><span class="fa fa-rotate-right"></span></a>
+                              </li>
+                            </ul>-->
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+
+      </div>
+
+      <div id="color-opacity-controls" ng-show="canvas.getActiveObject()" class="" style="width:130px;left:50%;margin-left:-130px;top:100px;">
+        <nav class="navbar navbar-default" style="z-index: 1" role="navigation">
+          <div class="container-fluid" style="margin-right:0px; padding-right:0px;margin-left:0px; padding-left:0px;">
+            <!--            <div class="navbar-header">
+                          <a class="navbar-brand" href="#"></a>
+                        </div>-->
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="padding:5px">
+              <ul class="nav navbar-nav">
+                <li class="dropdown pull-right">
+                  <a href="#" ng-click="removeSelected();
+                        $event.preventDefault()">Delete &nbsp;<span class="fa fa-trash-o"></span></a>
+                </li>
+                <li class="dropdown pull-right">
+                  <a href="#" ng-click="cloneSelected();
+                        $event.preventDefault()">Duplicate &nbsp;<span class="fa fa-copy"></span></a>
+                </li>
+
+                <li class="dropdown pull-right">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Order <span class="caret"></span></a>
+                  <ul class="dropdown-menu" role="menu" style="width:auto">
+                    <li class="dropdown pull-right">
+                      <a href="#" ng-click="bringForward();
+                            $event.preventDefault()">Bring Forward</a>
+                    </li>
+                    <li class="dropdown pull-right">
+                      <a href="#" ng-click="bringToFront();
+                            $event.preventDefault()">Bring to Front</a>
+                    </li>                 
+                    <li class="dropdown pull-right">
+                      <a href="#" ng-click="sendBackwards();
+                            $event.preventDefault()">Send Backwards</a>
+                    </li>
+                    <li class="dropdown pull-right">
+                      <a href="#" ng-click="sendToBack();
+                            $event.preventDefault()">Send to Back</a>
+                    </li>
+                    <li class="dropdown pull-right">
+                      <a href="#" ng-click="setAsBackground();
+                            $event.preventDefault()">Set As Background</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown pull-right"  ng-show="!getActiveLine() && (getActiveShape() || getText())">                                     
+                  <a href="#">Color <input type="color" style="width:40px" bind-value-to="fill"></a>                  
+                </li>                
+                <li class="dropdown pull-right"  ng-show="getActiveLine()">                                     
+                  <a href="#">Color <input type="color" style="width:40px" bind-value-to="strokeColor"></a>                  
+                </li>
+                <li class="dropdown pull-right">                   
+                  <a href="#" class="pull-right">Opacity</a> 
+                  <input value="100" type="range" style="width:100%;height:15px;display:inline-block;"  bind-value-to="opacity">     
+                </li>
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+
+
+          <div id="text-wrapper" style="margin-top: 10px;margin-bottom: 10px;" ng-show="getText()" class="ng-hide">
+            <!--<textarea bind-value-to="text"></textarea>-->
+
+            <div id="text-controls">
+              <!--<label for="font-family" style="display:inline-block">Font</label>-->
+              <select id="font-family" class="btn-object-action" bind-value-to="fontFamily" style="width:100%">
+                <option value="arial">Arial</option>
+                <option value="helvetica">Helvetica</option>
+                <option value="verdana">Verdana</option>
+                <option value="georgia">Georgia</option>
+                <option value="courier">Courier</option>
+                <option value="comic sans ms">Comic Sans</option>
+              </select>
+              <br>
+              <br>
+            </div>
+            <div id="text-controls-additional">
+              &nbsp;
+              <button type="button" class="btn btn-object-action" ng-click="toggleBold();
+                    $event.preventDefault()" ng-class="{
+            'btn-inverse'
+                : isBold()}">
+                B
+              </button>
+              <button type="button" class="btn btn-object-action" id="text-cmd-italic" ng-click="toggleItalic();
+                    $event.preventDefault()" ng-class="{
+            'btn-inverse'
+                : isItalic()}">
+                I
+              </button>
+              <button type="button" class="btn btn-object-action" id="text-cmd-underline" ng-click="toggleUnderline();
+                    $event.preventDefault()" ng-class="{
+            'btn-inverse'
+                :isUnderline()}">
+                U
+              </button>
+            </div>
+          </div>
+        </nav>
+      </div>
+      <div id="color-opacity-controls-group" ng-show="canvas.getActiveGroup()" class="" style="width:130px;left:50%;margin-left:-130px;top:100px;">
+        <nav class="navbar navbar-default" style="z-index: 1" role="navigation">
+          <div class="container-fluid" style="margin-right:0px; padding-right:0px;margin-left:0px; padding-left:0px;">
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="padding:5px">
+              <ul class="nav navbar-nav">
+                <li class="dropdown pull-right">
+                  <a href="#" ng-click="removeSelected();
+                        $event.preventDefault()">Delete &nbsp;<span class="fa fa-trash-o"></span></a>
+                </li>
+                <li class="dropdown pull-right">
+                  <a href="#" ng-click="deselect();
+                        $event.preventDefault()">Deselect &nbsp;<span class="fa fa-hand-o-up"></span></a>
+                </li>
+                <!--                <li class="dropdown pull-right">
+                                  <a href="#" ng-click="cloneSelected();
+                                      $event.preventDefault()">Duplicate &nbsp;<span class="fa fa-copy"></span></a>
+                                </li>-->
+              </ul>
+            </div><!-- /.navbar-collapse -->
+          </div><!-- /.container-fluid -->
+        </nav>
+      </div>
+    </div>
+  </div>
+</div>

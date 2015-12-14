@@ -1,0 +1,15 @@
+<div class="adventure-header-bar">
+    <span class="adventure-title-picker">Adventure: <%= lessonName %></span>
+    <a href="#" class="btn btn-default btn-sm btn-adventure js-select">Select</a>
+<!--    <a href="#" class="btn btn-default btn-sm btn-adventure js-trigger">Plugin</a>-->
+    <% if ( typeof lessonName === null || typeof lessonName === 'undefined'){ %>
+    <a href="#" class="btn btn-default btn-sm btn-adventure js-new-adventure">New Adventure </a>
+    <% }else { %>
+    <a href="#" class="btn btn-default btn-sm btn-adventure js-edit">Adventure Planner</a>
+    <% } %>
+</div>
+
+
+<div id="lessonView"  class="row margin-0px"></div>
+
+

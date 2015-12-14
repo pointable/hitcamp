@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+  <head>
+    <title>Student Wall</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/css/bootstrap.min.css">    
+    <link href="css/wallStudent.css" rel="stylesheet" type="text/css"/>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js"></script>
+
+    <script type="text/javascript" src="./js/wallStudent.js"></script>
+
+
+  </head>
+  <body style="width:100%;height:100%;">
+    <div style="float:right;">
+      <!--      <button type="button" class="btn btn-default btn-lg" id="buttonStar">
+            <span class="glyphicon glyphicon-star"></span> Star
+          </button>-->
+    </div>
+    <!--<div id="divName">   <h2>Name</h2></div>-->
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs">
+      <li class="active"><a href="#activity" data-toggle="tab">Activity</a></li>
+      <li><a href="#stats" data-toggle="tab">Stats</a></li>
+      <!--<li><a href="#messages" data-toggle="tab">Messages</a></li>-->
+      <!--<li><a href="#settings" data-toggle="tab">Settings</a></li>-->
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane active" id="activity">
+        <ul class="timeline">
+          <li class="clearfix" style="float: none;"></li>
+        </ul>
+      </div>
+      <div class="tab-pane" id="stats">
+        <img src='/tools/drive/spinner.gif' id='imgSpinner' style="position:absolute; left:50%; top:50%;">
+        <div class="div-stats center-block">
+          <canvas id="myChart" class="center-block" width="40" height="40"></canvas>
+        </div>
+      </div>
+      <!--      <div class="tab-pane" id="messages">
+              MESSAGES
+            </div>-->
+      <!--<div class="tab-pane" id="settings">...</div>-->
+    </div>
+    <script type="text/template" class="template" id="templateWallPost">
+      <% if ( wallPost.isEven ){ %>
+      <li>
+      <% }else{ %>
+      <li  class="timeline-inverted">
+      <% } %>
+      <div class="timeline-badge primary"><a><i class="glyphicon glyphicon-record" rel="tooltip" title="" id=""></i></a></div>
+      <div class="timeline-panel">
+      <div class="timeline-heading">
+      <% if ( wallPost.imageData ){ %>            
+      <img class="img-responsive" src="<%- wallPost.imageData %>" />
+      <% }else{ %>            
+      <img class="img-responsive" src="<%- wallPost.imageURL %>" />
+      <% } %>
+      </div>
+      <div class="timeline-body">
+      <p><%- wallPost.postData %> </p>
+      </div>
+
+      <div class="timeline-footer">
+      <a href="#" class="likeButton" id="<%- wallPost.id %>" value="<%- _.size(wallPost.likes) %>">Like&nbsp;</a>
+      <a class="likesCounter"><i class="glyphicon glyphicon-thumbs-up"></i> <%- _.size(wallPost.likes) %></a>
+      <a class="pull-right"><%- wallPost.postedTimeString %> ago</a>
+      </div>
+      </div>
+      </li>
+    </script>
+    <script type="text/template" class="template" id="templateWallPostLikes">
+      <i class="glyphicon glyphicon-thumbs-up"></i> <%- numberOfLikes %> </a>
+    </script>
+  </body>
+</html>

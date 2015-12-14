@@ -1,0 +1,44 @@
+extends ../../../layouts/account
+
+block head
+  title Classroom / Settings
+
+block neck
+  link(rel='stylesheet', href='/views/session/reports/indexReports.min.css?#{cacheBreaker}')
+
+block feet
+  script(src='//cdnjs.cloudflare.com/ajax/libs/Chart.js/0.2.0/Chart.min.js')
+  script(src='//www.google.com/jsapi')
+  script(src='/views/session/reports/indexReports.js?#{cacheBreaker}')
+
+block body
+  div.row
+    div.col-xs-12
+      div#header
+      div#stats
+      | <br> <br>
+      div.center-block#table_div
+      //div#identity
+      //div#roles
+      //div#password
+      //div#delete
+
+  script(type='text/template', id='tmpl-header')
+    div.page-header
+      h1
+        a(href='/classrooms') <%= name %>
+        //|  / <%= name %> 
+        |: Reports
+
+  script(type='text/template', id='tmpl-stats')
+    |<canvas id="myChart" width="800" height="400"></canvas>
+    //<%= JSON.stringify(students) %> 
+
+  script(type='text/template', id='tmpl-no-students')
+    | This Classroom does not have any registered students
+    | <br>
+    | Students must sign up with a student account to have their reports recorded
+
+  script(type='text/template', id='data-record') !{data.record}
+
+  script(type='text/template', id='data-stats') !{data.stats}
